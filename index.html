@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Shirehulo Adam</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+body{background:#f0f2f5;color:#1c1e21}
+button{cursor:pointer;border:0}
+.hidden{display:none!important}
+
+header{
+ background:#1877f2;color:white;height:60px;padding:0 25px;
+ display:flex;align-items:center;justify-content:space-between;
+ position:sticky;top:0;z-index:20
+}
+.logo{font-size:25px;font-weight:bold}
+.search{width:300px;padding:10px 15px;border:0;border-radius:20px}
+.headerRight{display:flex;gap:10px;align-items:center}
+.headerBtn{background:white;color:#1877f2;padding:8px 12px;border-radius:6px}
+
+.container{
+ max-width:1250px;margin:20px auto;display:grid;
+ grid-template-columns:230px 1fr 240px;gap:20px
+}
+.card{
+ background:white;border-radius:10px;padding:18px;
+ margin-bottom:15px;box-shadow:0 1px 4px #0001
+}
+
+.sidebar div{padding:12px;border-radius:8px;cursor:pointer}
+.sidebar div:hover{background:#e4e6eb}
+
+textarea,input,select{
+ width:100%;padding:11px;border:1px solid #ddd;
+ border-radius:7px;margin-top:7px;outline:none
+}
+
+.primary{
+ background:#1877f2;color:white;padding:10px 18px;
+ border-radius:6px;font-weight:bold
+}
+.secondary{
+ background:#e4e6eb;color:#1c1e21;padding:9px 14px;
+ border-radius:6px
+}
+.danger{background:#e53935;color:white;padding:8px 12px;border-radius:6px}
+.green{color:#16a34a;font-size:22px}
+
+.postBox textarea{height:80px;resize:none}
+.postTools{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}
+.photoLabel{
+ background:#e4e6eb;padding:9px 13px;border-radius:6px;
+ cursor:pointer;font-weight:bold
+}
+.photoLabel input{display:none}
+
+.post img{max-width:100%;border-radius:8px;margin:10px 0}
+.actions{
+ display:flex;gap:8px;border-top:1px solid #ddd;
+ padding-top:10px;margin-top:10px;flex-wrap:wrap
+}
+
+.activePerson{
+ display:flex;align-items:center;gap:9px;margin:12px 0
+}
+.avatar{
+ width:42px;height:42px;border-radius:50%;
+ object-fit:cover;background:#ddd
+}
+.online{
+ width:10px;height:10px;background:#22c55e;
+ border-radius:50%;display:inline-block;margin-left:-16px;
+ margin-top:25px;border:2px solid white
+}
+
+/* LOGIN */
+#auth{
+ min-height:100vh;display:flex;align-items:center;
+ justify-content:center;background:#f0f2f5
+}
+.authBox{
+ width:380px;background:white;padding:30px;
+ border-radius:12px;box-shadow:0 3px 15px #0002
+}
+.authBox h1{text-align:center;color:#1877f2;margin-bottom:20px}
+.authBox button{width:100%;margin-top:12px}
+.switch{text-align:center;margin-top:18px;color:#1877f2;cursor:pointer}
+
+/* PROFILE */
+.profilePage{max-width:900px;margin:auto}
+.cover{
+ height:280px;border-radius:12px 12px 0 0;
+ background:#d9e2f3 center/cover no-repeat;
+ position:relative
+}
+.coverControls{
+ position:absolute;right:15px;bottom:15px
+}
+.profileInfo{
+ background:white;padding:0 25px 20px;
+ position:relative;min-height:130px
+}
+.profilePicWrap{
+ position:absolute;left:25px;bottom:15px
+}
+.profilePic{
+ width:145px;height:145px;border-radius:50%;
+ border:5px solid white;object-fit:cover;background:#ddd
+}
+.profileName{margin-left:175px;padding-top:25px}
+.profileTabs{
+ display:flex;gap:5px;background:white;
+ border-top:1px solid #ddd;padding:10px
+}
+.profileTabs button{padding:11px 18px;background:white;border-radius:7px}
+.profileTabs button:hover{background:#e4e6eb}
+
+.aboutGrid{
+ display:grid;grid-template-columns:1fr 1fr;gap:10px
+}
+.aboutItem{padding:12px;background:#f5f6f7;border-radius:7px}
+
+.menuBox{
+ position:absolute;right:15px;top:50px;
+ background:white;border:1px solid #ddd;
+ box-shadow:0 3px 10px #0002;padding:10px;
+ border-radius:8px;z-index:10
+}
+.menuBox div{padding:10px;cursor:pointer}
+.menuBox div:hover{background:#eee}
+
+/* MESSAGE */
+.messageLayout{
+ display:grid;grid-template-columns:280px 1fr;
+ height:650px
+}
+.chatList{border-right:1px solid #ddd;overflow:auto}
+.chatUser{display:flex;gap:10px;padding:12px;cursor:pointer}
+.chatUser:hover{background:#f0f2f5}
+.chatArea{display:flex;flex-direction:column}
+.messages{flex:1;padding:15px;overflow:auto}
+.msg{
+ max-width:65%;padding:9px 12px;
+ border-radius:14px;margin:7px 0;background:#e4e6eb
+}
+.msg.me{margin-left:auto;background:#1877f2;color:white}
+.seenDot{
+ display:inline-block;width:7px;height:7px;
+ background:#1877f2;border-radius:50%;margin-left:5px
+}
+.messageInput{display:flex;gap:7px;padding:10px;border-top:1px solid #ddd}
+.messageInput input{margin:0}
+.messageMenu{display:flex;gap:5px;padding:8px;border-bottom:1px solid #ddd}
+
+/* MODAL */
+.modal{
+ position:fixed;inset:0;background:#0008;
+ display:flex;align-items:center;justify-content:center;
+ z-index:50
+}
+.modalBox{
+ background:white;width:450px;max-width:92%;
+ padding:25px;border-radius:12px
+}
+.modalBox h2{margin-bottom:15px}
+.modalButtons{display:flex;gap:8px;margin-top:15px}
+
+@media(max-width:900px){
+ .container{grid-template-columns:1fr;padding:10px}
+ .sidebar,.right-sidebar{display:none}
+ .search{width:150px}
+ .profilePage{padding:10px}
+ .aboutGrid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= LOGIN / SIGNUP ================= -->
+<section id="auth">
+
+<div class="authBox" id="loginBox">
+<h1>Shirehulo Adam</h1>
+<h2>Login</h2>
+
+<input id="loginEmail" type="email" placeholder="Email or phone">
+<input id="loginPass" type="password" placeholder="Password">
+
+<button class="primary" onclick="login()">Log In</button>
+
+<div class="switch" onclick="showSignup()">Create New Account</div>
+</div>
+
+<div class="authBox hidden" id="signupBox">
+<h1>Shirehulo Adam</h1>
+<h2>Create Account</h2>
+
+<input id="signupName" placeholder="Full name">
+<input id="signupEmail" type="email" placeholder="Email">
+<input id="signupPhone" placeholder="Phone number">
+<input id="signupPass" type="password" placeholder="Password">
+
+<button class="primary" onclick="signup()">Sign Up</button>
+
+<div class="switch" onclick="showLogin()">Already have an account? Login</div>
+</div>
+
+</section>
+
+
+<!-- ================= MAIN APP ================= -->
+<section id="app" class="hidden">
+
+<header>
+<div class="logo">Shirehulo Adam</div>
+
+<input class="search" id="searchBox"
+placeholder="Search Shirehulo Adam..." oninput="searchUsers()">
+
+<div class="headerRight">
+<button class="headerBtn" onclick="openProfile()">👤 Profile</button>
+<button class="headerBtn" onclick="logout()">Logout</button>
+</div>
+</header>
+
+
+<div class="container">
+
+<!-- LEFT SIDEBAR -->
+<aside class="sidebar card">
+
+<div onclick="showHome()">🏠 Home</div>
+<div onclick="openProfile()">👤 Profile</div>
+<div onclick="showMessages()">💬 Messages</div>
+<div onclick="showFriends()">👥 Friends</div>
+<div onclick="showFriendRequests()">🤝 Friend Requests</div>
+<div onclick="openPrivacy()">🔐 Privacy</div>
+<div onclick="openSettings()">⚙️ Settings</div>
+
+</aside>
+
+
+<!-- MAIN -->
+<main id="mainContent">
+
+<!-- HOME -->
+<div id="homePage">
+
+<div class="card postBox">
+<h3>Create Post</h3>
+
+<textarea id="postText"
+placeholder="What's on your mind?"></textarea>
+
+<div class="postTools">
+
+<label class="photoLabel">
+📷 Photo
+<input type="file" id="postPhoto" accept="image/*"
+onchange="previewPostPhoto(event)">
+</label>
+
+<button class="primary" onclick="createPost()">Post</button>
+
+</div>
+
+<img id="postPreview"
+class="hidden"
+style="max-height:250px;object-fit:cover">
+
+</div>
+
+<div id="posts"></div>
+
+</div>
+
+
+<!-- PROFILE -->
+<div id="profilePage" class="profilePage hidden">
+
+<div class="card" style="padding:0;overflow:hidden">
+
+<div class="cover" id="coverPhoto">
+
+<div class="coverControls">
+<label class="photoLabel">
+📷 Change Cover
+<input type="file" accept="image/*"
+onchange="uploadCover(event)">
+</label>
+</div>
+
+</div>
+
+<div class="profileInfo">
+
+<div class="profilePicWrap">
+
+<img id="profilePhoto"
+class="profilePic"
+src="">
+
+<label class="photoLabel"
+style="position:absolute;bottom:5px;right:-10px">
+📷
+<input type="file" accept="image/*"
+onchange="uploadProfile(event)">
+</label>
+
+</div>
+
+<div class="profileName">
+<h2 id="profileName">Your Name</h2>
+<p>Shirehulo Adam Community</p>
+</div>
+
+</div>
+
+<div class="profileTabs">
+
+<button onclick="profileTab('all')">All</button>
+<button onclick="profileTab('photo')">Photo</button>
+<button onclick="profileTab('video')">Video</button>
+<button onclick="profileTab('about')">About</button>
+
+<button onclick="toggleProfileMenu()">⋯</button>
+
+<div id="profileMenu" class="menuBox hidden">
+
+<div onclick="openPrivacy()">👁 Who can see my profile</div>
+<div onclick="openPrivacy()">👍 Who can react</div>
+<div onclick="openPrivacy()">💬 Who can message me</div>
+<div onclick="openPrivacy()">🔒 Profile privacy</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div id="profileContent">
+
+<div class="card">
+<h3>About</h3><br>
+
+<div class="aboutGrid">
+
+<div class="aboutItem">🎓 Education: <b id="education">Not added</b></div>
+<div class="aboutItem">💍 Married Status: <b id="married">Not added</b></div>
+<div class="aboutItem">💼 Workplace: <b id="workplace">Not added</b></div>
+<div class="aboutItem">📈 Experience: <b id="experience">Not added</b></div>
+<div class="aboutItem">🎂 Date of Birth: <b id="dob">Not added</b></div>
+<div class="aboutItem">⏳ Age: <b id="age">Not added</b></div>
+
+</div>
+
+<br>
+<button class="primary" onclick="editAbout()">Edit Profile</button>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- MESSAGES -->
+<div id="messagePage" class="hidden">
+
+<div class="card messageLayout">
+
+<div class="chatList">
+
+<h3 style="padding:12px">Messages</h3>
+
+<div class="chatUser" onclick="openChat('Rahim')">
+<img class="avatar" src="https://i.pravatar.cc/100?img=12">
+<div>Rahim</div>
+</div>
+
+<div class="chatUser" onclick="openChat('Karim')">
+<img class="avatar" src="https://i.pravatar.cc/100?img=13">
+<div>Karim</div>
+</div>
+
+<div class="chatUser" onclick="openChat('Hasan')">
+<img class="avatar" src="https://i.pravatar.cc/100?img=14">
+<div>Hasan</div>
+</div>
+
+</div>
+
+<div class="chatArea">
+
+<div class="messageMenu">
+<button class="secondary" onclick="alert('Chat archived')">Archive</button>
+<button class="secondary" onclick="alert('Chat restricted')">Restrict</button>
+<button class="secondary" onclick="deleteChat()">Delete</button>
+<button class="secondary" onclick="toggleAutoReply()">Auto Reply</button>
+</div>
+
+<div id="chatTitle" style="padding:10px;font-weight:bold">
+Select a chat
+</div>
+
+<div id="messages" class="messages"></div>
+
+<div class="messageInput">
+
+<input id="messageInput" placeholder="Write a message..."
+onkeydown="if(event.key==='Enter')sendMessage()">
+
+<button class="primary" onclick="sendMessage()">Send</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FRIENDS -->
+<div id="friendsPage" class="hidden">
+
+<div class="card">
+<h2>Friends</h2><br>
+
+<p>👤 Rahim</p><br>
+<p>👤 Karim</p><br>
+<p>👤 Hasan</p>
+
+</div>
+
+</div>
+
+
+<!-- FRIEND REQUESTS -->
+<div id="requestPage" class="hidden">
+
+<div class="card">
+
+<h2>Friend Requests</h2><br>
+
+<div class="card">
+<b>Rahim wants to be your friend.</b><br><br>
+
+<button class="green" onclick="acceptRequest(this)">✔️</button>
+<button style="font-size:22px" onclick="rejectRequest(this)">❌</button>
+<button style="font-size:22px" onclick="blockUser(this)">🚫</button>
+
+</div>
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- RIGHT SIDEBAR -->
+<aside class="right-sidebar card">
+
+<h3>Active Friends</h3>
+
+<div class="activePerson">
+<img class="avatar" src="https://i.pravatar.cc/100?img=12">
+<span>Rahim</span>
+<span class="online"></span>
+</div>
+
+<div class="activePerson">
+<img class="avatar" src="https://i.pravatar.cc/100?img=13">
+<span>Karim</span>
+<span class="online"></span>
+</div>
+
+<div class="activePerson">
+<img class="avatar" src="https://i.pravatar.cc/100?img=14">
+<span>Hasan</span>
+<span class="online"></span>
+</div>
+
+</aside>
+
+</div>
+
+</section>
+
+
+<!-- ================= MODAL ================= -->
+
+<div id="modal" class="modal hidden">
+
+<div class="modalBox" id="modalContent"></div>
+
+</div>
+
+
+<script>
+
+/* ================= DATA ================= */
+
+let currentUser =
+JSON.parse(localStorage.getItem("shirehuloUser")) || null;
+
+let posts =
+JSON.parse(localStorage.getItem("shirehuloPosts")) || [];
+
+let profileData =
+JSON.parse(localStorage.getItem("shirehuloProfile")) || {
+
+name:"Your Name",
+education:"Not added",
+married:"Not added",
+workplace:"Not added",
+experience:"Not added",
+dob:"",
+profilePhoto:"",
+coverPhoto:""
+
+};
+
+let currentChat="";
+let autoReply=false;
+
+
+/* ================= AUTH ================= */
+
+function showSignup(){
+document.getElementById("loginBox").classList.add("hidden");
+document.getElementById("signupBox").classList.remove("hidden");
+}
+
+function showLogin(){
+document.getElementById("signupBox").classList.add("hidden");
+document.getElementById("loginBox").classList.remove("hidden");
+}
+
+function signup(){
+
+let name=document.getElementById("signupName").value.trim();
+let email=document.getElementById("signupEmail").value.trim();
+let phone=document.getElementById("signupPhone").value.trim();
+let pass=document.getElementById("signupPass").value;
+
+if(!name||!email||!pass){
+alert("Name, Email and Password are required.");
+return;
+}
+
+let user={name,email,phone,pass};
+
+localStorage.setItem("shirehuloUser",JSON.stringify(user));
+
+profileData.name=name;
+localStorage.setItem("shirehuloProfile",JSON.stringify(profileData));
+
+alert("Account created successfully!");
+startApp();
+}
+
+function login(){
+
+let email=document.getElementById("loginEmail").value.trim();
+let pass=document.getElementById("loginPass").value;
+
+let user=JSON.parse(localStorage.getItem("shirehuloUser"));
+
+if(!user){
+alert("No account found. Please Sign Up first.");
+return;
+}
+
+if((email===user.email||email===user.phone)&&pass===user.pass){
+currentUser=user;
+startApp();
+}else{
+alert("Wrong email/phone or password.");
+}
+
+}
+
+function logout(){
+
+localStorage.removeItem("shirehuloLogin");
+document.getElementById("app").classList.add("hidden");
+document.getElementById("auth").classList.remove("hidden");
+
+}
+
+
+/* ================= START ================= */
+
+function startApp(){
+
+currentUser=JSON.parse(localStorage.getItem("shirehuloUser"));
+
+document.getElementById("auth").classList.add("hidden");
+document.getElementById("app").classList.remove("hidden");
+
+loadProfile();
+renderPosts();
+showHome();
+
+localStorage.setItem("shirehuloLogin","true");
+}
+
+
+/* ================= PAGE CONTROL ================= */
+
+function hidePages(){
+
+[
+"homePage",
+"profilePage",
+"messagePage",
+"friendsPage",
+"requestPage"
+].forEach(id=>{
+document.getElementById(id).classList.add("hidden");
+});
+
+}
+
+function showHome(){
+
+hidePages();
+document.getElementById("homePage").classList.remove("hidden");
+
+}
+
+function openProfile(){
+
+hidePages();
+document.getElementById("profilePage").classList.remove("hidden");
+loadProfile();
+
+}
+
+function showMessages(){
+
+hidePages();
+document.getElementById("messagePage").classList.remove("hidden");
+
+}
+
+function showFriends(){
+
+hidePages();
+document.getElementById("friendsPage").classList.remove("hidden");
+
+}
+
+function showFriendRequests(){
+
+hidePages();
+document.getElementById("requestPage").classList.remove("hidden");
+
+}
+
+
+/* ================= PROFILE ================= */
+
+function loadProfile(){
+
+document.getElementById("profileName").textContent=profileData.name;
+
+document.getElementById("education").textContent=profileData.education;
+document.getElementById("married").textContent=profileData.married;
+document.getElementById("workplace").textContent=profileData.workplace;
+document.getElementById("experience").textContent=profileData.experience;
+
+document.getElementById("dob").textContent=
+profileData.dob || "Not added";
+
+if(profileData.dob){
+
+let birth=new Date(profileData.dob);
+let now=new Date();
+
+let years=now.getFullYear()-birth.getFullYear();
+
+let birthday=new Date(
+now.getFullYear(),
+birth.getMonth(),
+birth.getDate()
+);
+
+if(now<birthday)years--;
+
+let lastBirthday=new Date(
+birth.getFullYear()+years,
+birth.getMonth(),
+birth.getDate()
+);
+
+let days=Math.floor(
+(now-lastBirthday)/(1000*60*60*24)
+);
+
+document.getElementById("age").textContent=
+years+" years "+days+" days";
+
+}else{
+
+document.getElementById("age").textContent="Not added";
+
+}
+
+if(profileData.profilePhoto){
+document.getElementById("profilePhoto").src=
+profileData.profilePhoto;
+}else{
+document.getElementById("profilePhoto").src=
+"https://i.pravatar.cc/300?img=11";
+}
+
+if(profileData.coverPhoto){
+document.getElementById("coverPhoto").style.backgroundImage=
+"url('"+profileData.coverPhoto+"')";
+}
+
+}
+
+
+/* ================= PROFILE PHOTO ================= */
+
+function uploadProfile(event){
+
+let file=event.target.files[0];
+
+if(!file)return;
+
+if(!file.type.startsWith("image/")){
+alert("Please select an image.");
+return;
+}
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+profileData.profilePhoto=e.target.result;
+
+localStorage.setItem(
+"shirehuloProfile",
+JSON.stringify(profileData)
+);
+
+loadProfile();
+
+alert("Profile photo updated!");
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* ================= COVER PHOTO ================= */
+
+function uploadCover(event){
+
+let file=event.target.files[0];
+
+if(!file)return;
+
+if(!file.type.startsWith("image/")){
+alert("Please select an image.");
+return;
+}
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+profileData.coverPhoto=e.target.result;
+
+localStorage.setItem(
+"shirehuloProfile",
+JSON.stringify(profileData)
+);
+
+loadProfile();
+
+alert("Cover photo updated!");
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* ================= EDIT ABOUT ================= */
+
+function editAbout(){
+
+openModal(`
+<h2>Edit Profile</h2>
+
+<label>Education</label>
+<input id="editEducation" value="${profileData.education}">
+
+<label>Married Status</label>
+<select id="editMarried">
+<option ${profileData.married==="Single"?"selected":""}>Single</option>
+<option ${profileData.married==="Married"?"selected":""}>Married</option>
+<option ${profileData.married==="Divorced"?"selected":""}>Divorced</option>
+<option ${profileData.married==="Widowed"?"selected":""}>Widowed</option>
+</select>
+
+<label>Workplace</label>
+<input id="editWorkplace" value="${profileData.workplace}">
+
+<label>Experience</label>
+<input id="editExperience" value="${profileData.experience}">
+
+<label>Date of Birth</label>
+<input id="editDOB" type="date" value="${profileData.dob}">
+
+<div class="modalButtons">
+<button class="primary" onclick="saveAbout()">Save</button>
+<button class="secondary" onclick="closeModal()">Cancel</button>
+</div>
+`);
+
+}
+
+function saveAbout(){
+
+profileData.education=
+document.getElementById("editEducation").value;
+
+profileData.married=
+document.getElementById("editMarried").value;
+
+profileData.workplace=
+document.getElementById("editWorkplace").value;
+
+profileData.experience=
+document.getElementById("editExperience").value;
+
+profileData.dob=
+document.getElementById("editDOB").value;
+
+localStorage.setItem(
+"shirehuloProfile",
+JSON.stringify(profileData)
+);
+
+closeModal();
+loadProfile();
+
+}
+
+
+/* ================= PROFILE TABS ================= */
+
+function profileTab(type){
+
+let box=document.getElementById("profileContent");
+
+if(type==="about"){
+
+box.innerHTML=`
+<div class="card">
+<h3>About</h3><br>
+<div class="aboutGrid">
+
+<div class="aboutItem">🎓 Education: <b>${profileData.education}</b></div>
+<div class="aboutItem">💍 Married Status: <b>${profileData.married}</b></div>
+<div class="aboutItem">💼 Workplace: <b>${profileData.workplace}</b></div>
+<div class="aboutItem">📈 Experience: <b>${profileData.experience}</b></div>
+<div class="aboutItem">🎂 Date of Birth: <b>${profileData.dob||"Not added"}</b></div>
+<div class="aboutItem">⏳ Age: <b>${document.getElementById("age").textContent}</b></div>
+
+</div>
+</div>`;
+
+}else if(type==="photo"){
+
+box.innerHTML=`
+<div class="card">
+<h3>Photos</h3><br>
+<p>Your uploaded photos will appear here.</p>
+</div>`;
+
+}else if(type==="video"){
+
+box.innerHTML=`
+<div class="card">
+<h3>Videos</h3><br>
+<p>Your uploaded videos will appear here.</p>
+</div>`;
+
+}else{
+
+box.innerHTML=`
+<div class="card">
+<h3>All</h3><br>
+<p>Your profile content will appear here.</p>
+</div>`;
+
+}
+
+}
+
+
+/* ================= PROFILE MENU ================= */
+
+function toggleProfileMenu(){
+
+document.getElementById("profileMenu")
+.classList.toggle("hidden");
+
+}
+
+
+/* ================= POSTS ================= */
+
+function previewPostPhoto(event){
+
+let file=event.target.files[0];
+
+if(!file)return;
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+let preview=document.getElementById("postPreview");
+
+preview.src=e.target.result;
+preview.classList.remove("hidden");
+
+};
+
+reader.readAsDataURL(file);
+
+}
+
+
+function createPost(){
+
+let text=document.getElementById("postText").value.trim();
+let file=document.getElementById("postPhoto").files[0];
+
+if(!text && !file){
+
+alert("Write something or select a photo.");
+return;
+
+}
+
+if(file){
+
+let reader=new FileReader();
+
+reader.onload=function(e){
+
+savePost(text,e.target.result);
+
+};
+
+reader.readAsDataURL(file);
+
+}else{
+
+savePost(text,"");
+
+}
+
+}
+
+
+function savePost(text,image){
+
+let post={
+
+id:Date.now(),
+name:profileData.name,
+text:text,
+image:image,
+wow:0,
+haha:0,
+comments:[],
+time:new Date().toLocaleString()
+
+};
+
+posts.unshift(post);
+
+localStorage.setItem(
+"shirehuloPosts",
+JSON.stringify(posts)
+);
+
+document.getElementById("postText").value="";
+document.getElementById("postPhoto").value="";
+
+document.getElementById("postPreview")
+.classList.add("hidden");
+
+renderPosts();
+
+}
+
+
+function renderPosts(){
+
+let container=document.getElementById("posts");
+
+container.innerHTML="";
+
+posts.forEach(post=>{
+
+let div=document.createElement("div");
+
+div.className="card post";
+
+div.innerHTML=`
+
+<h3>${escapeHTML(post.name)}</h3>
+<small>${post.time}</small>
+
+${post.text?
+`<p style="margin-top:10px">${escapeHTML(post.text)}</p>`:""}
+
+${post.image?
+`<img src="${post.image}">`:""}
+
+<div class="actions">
+
+<button class="secondary"
+onclick="reactPost(${post.id},'wow')">
+😮 Wow <span>${post.wow}</span>
+</button>
+
+<button class="secondary"
+onclick="reactPost(${post.id},'haha')">
+😂 Haha <span>${post.haha}</span>
+</button>
+
+<button class="secondary"
+onclick="commentPost(${post.id})">
+💬 Comment
+</button>
+
+<button class="secondary"
+onclick="sharePost(${post.id})">
+↗ Share
+</button>
+
+<button class="secondary"
+onclick="editPost(${post.id})">
+✏️ Edit
+</button>
+
+</div>
+
+<div id="comments-${post.id}" style="margin-top:10px"></div>
+`;
+
+container.appendChild(div);
+
+});
+
+}
+
+
+function reactPost(id,type){
+
+let post=posts.find(p=>p.id===id);
+
+if(!post)return;
+
+if(type==="wow")post.wow++;
+if(type==="haha")post.haha++;
+
+localStorage.setItem(
+"shirehuloPosts",
+JSON.stringify(posts)
+);
+
+renderPosts();
+
+}
+
+
+function commentPost(id){
+
+let text=prompt("Write your comment:");
+
+if(!text)return;
+
+let post=posts.find(p=>p.id===id);
+
+post.comments.push(text);
+
+localStorage.setItem(
+"shirehuloPosts",
+JSON.stringify(posts)
+);
+
+alert("Comment added.");
+
+}
+
+
+function sharePost(id){
+
+let post=posts.find(p=>p.id===id);
+
+if(!post)return;
+
+navigator.clipboard?.writeText(
+"Shared from Shirehulo Adam: "+post.text
+);
+
+alert("Post shared.");
+
+}
+
+
+function editPost(id){
+
+let post=posts.find(p=>p.id===id);
+
+let newText=prompt(
+"Edit your post:",
+post.text
+);
+
+if(newText===null)return;
+
+post.text=newText;
+
+localStorage.setItem(
+"shirehuloPosts",
+JSON.stringify(posts)
+);
+
+renderPosts();
+
+}
+
+
+/* ================= MESSAGES ================= */
+
+function openChat(name){
+
+currentChat=name;
+
+document.getElementById("chatTitle").textContent=
+name;
+
+let messages=document.getElementById("messages");
+
+messages.innerHTML=`
+
+<div class="msg">
+Hello! How are you?
+<span class="seenDot"></span>
+</div>
+
+`;
+
+}
+
+function sendMessage(){
+
+let input=document.getElementById("messageInput");
+
+let text=input.value.trim();
+
+if(!text)return;
+
+let messages=document.getElementById("messages");
+
+messages.innerHTML+=`
+
+<div class="msg me">
+${escapeHTML(text)}
+<span class="seenDot"></span>
+</div>
+
+`;
+
+input.value="";
+
+messages.scrollTop=messages.scrollHeight;
+
+if(autoReply){
+
+setTimeout(()=>{
+
+let answer=getAutoReply(text);
+
+messages.innerHTML+=`
+<div class="msg">
+${answer}
+<span class="seenDot"></span>
+</div>
+`;
+
+messages.scrollTop=messages.scrollHeight;
+
+},700);
+
+}
+
+}
+
+function deleteChat(){
+
+document.getElementById("messages").innerHTML="";
+
+alert("Chat deleted.");
+
+}
+
+function toggleAutoReply(){
+
+autoReply=!autoReply;
+
+alert(
+"Auto Reply is now "+
+(autoReply?"ON":"OFF")
+);
+
+}
+
+
+/* 30+ AUTO REPLIES */
+
+function getAutoReply(text){
+
+let t=text.toLowerCase();
+
+let replies={
+
+"hello":"Hello! 👋 How can I help you?",
+"hi":"Hi! Nice to hear from you.",
+"how are you":"I'm doing great! How are you?",
+"good morning":"Good morning! ☀️",
+"good night":"Good night! 🌙",
+"thanks":"You're welcome! 😊",
+"thank you":"You're most welcome!",
+"bye":"Bye! Take care.",
+"where are you":"I'm here on Shirehulo Adam.",
+"what are you doing":"I'm chatting with you.",
+"who are you":"I'm your Shirehulo Adam assistant.",
+"help":"Sure! Tell me what you need.",
+"what is your name":"You can call me Shirehulo Assistant.",
+"how old are you":"I don't have a human age.",
+"are you online":"Yes, I'm online.",
+"can you help me":"Of course!",
+"what is shirehulo adam":"It's your social community.",
+"can i call you":"You can message me here.",
+"nice":"Thank you! 😊",
+"wow":"Wow indeed! 😮",
+"haha":"😂 Glad you liked it!",
+"where do you live":"I'm available online.",
+"are you busy":"No, I'm available.",
+"see you":"See you later!",
+"welcome":"Thank you! Welcome too.",
+"good":"That's great!",
+"okay":"Okay! 👍",
+"yes":"Great!",
+"no":"Okay, no problem.",
+"what's up":"Not much! What's up with you?",
+"friend":"Friends are important! 👥",
+"message":"Yes, you're messaging me now.",
+"photo":"You can upload photos to posts.",
+"post":"You can create a post from Home.",
+"privacy":"You can manage privacy from Settings.",
+"password":"You can change your password from Privacy Settings."
+
+};
+
+for(let key in replies){
+
+if(t.includes(key)){
+return replies[key];
+}
+
+}
+
+return "Thanks for your message! I'll get back to you soon. 😊";
+
+}
+
+
+/* ================= FRIEND REQUEST ================= */
+
+function acceptRequest(btn){
+
+btn.parentElement.innerHTML=
+"<b>Friend request accepted ✔️</b>";
+
+}
+
+function rejectRequest(btn){
+
+btn.parentElement.innerHTML=
+"<b>Friend request rejected ❌</b>";
+
+}
+
+function blockUser(btn){
+
+btn.parentElement.innerHTML=
+"<b>User blocked 🚫</b>";
+
+}
+
+
+/* ================= PRIVACY ================= */
+
+function openPrivacy(){
+
+openModal(`
+
+<h2>🔐 Privacy Settings</h2>
+
+<label>Who can see my profile?</label>
+
+<select>
+<option>Everyone</option>
+<option>Friends</option>
+<option>Only Me</option>
+</select>
+
+<label>Who can react to my posts?</label>
+
+<select>
+<option>Everyone</option>
+<option>Friends</option>
+<option>Only Me</option>
+</select>
+
+<label>Who can message me?</label>
+
+<select>
+<option>Everyone</option>
+<option>Friends</option>
+<option>No one</option>
+</select>
+
+<hr style="margin:15px 0">
+
+<h3>Security</h3>
+
+<button class="secondary"
+onclick="changePassword()">
+🔑 Change Password
+</button>
+
+<button class="secondary"
+onclick="changeContact()">
+📧 Change Email / Phone
+</button>
+
+<button class="secondary"
+onclick="twoFactor()">
+🛡️ Two-Factor Authentication
+</button>
+
+<br><br>
+
+<button class="primary"
+onclick="closeModal()">
+Done
+</button>
+
+`);
+
+}
+
+
+function changePassword(){
+
+alert(
+"Demo: Password change form can be connected to a real backend."
+);
+
+}
+
+function changeContact(){
+
+alert(
+"Demo: Email/Phone change requires backend verification."
+);
+
+}
+
+function twoFactor(){
+
+alert(
+"Demo: 2-Factor Authentication requires a real backend/OTP service."
+);
+
+}
+
+
+/* ================= SETTINGS ================= */
+
+function openSettings(){
+
+openModal(`
+
+<h2>⚙️ Settings</h2>
+
+<button class="secondary"
+onclick="openPrivacy()">
+🔐 Privacy & Security
+</button>
+
+<br><br>
+
+<button class="secondary"
+onclick="alert('Notification settings')">
+🔔 Notifications
+</button>
+
+<br><br>
+
+<button class="secondary"
+onclick="alert('Language settings')">
+🌐 Language
+</button>
+
+<br><br>
+
+<button class="primary"
+onclick="closeModal()">
+Close
+</button>
+
+`);
+
+}
+
+
+/* ================= SEARCH ================= */
+
+function searchUsers(){
+
+let value=
+document.getElementById("searchBox").value
+.toLowerCase();
+
+if(!value)return;
+
+let names=["Rahim","Karim","Hasan"];
+
+let found=names.filter(n=>
+n.toLowerCase().includes(value)
+);
+
+if(found.length){
+
+console.log("Users:",found);
+
+}
+
+}
+
+
+/* ================= MODAL ================= */
+
+function openModal(html){
+
+document.getElementById("modalContent").innerHTML=html;
+
+document.getElementById("modal")
+.classList.remove("hidden");
+
+}
+
+function closeModal(){
+
+document.getElementById("modal")
+.classList.add("hidden");
+
+}
+
+
+/* ================= SECURITY ================= */
+
+function escapeHTML(str){
+
+return String(str)
+.replace(/&/g,"&amp;")
+.replace(/</g,"&lt;")
+.replace(/>/g,"&gt;")
+.replace(/"/g,"&quot;")
+.replace(/'/g,"&#039;");
+
+}
+
+
+/* ================= AUTO LOGIN ================= */
+
+window.onload=function(){
+
+let logged=
+localStorage.getItem("shirehuloLogin");
+
+if(logged==="true" &&
+localStorage.getItem("shirehuloUser")){
+
+startApp();
+
+}else{
+
+document.getElementById("auth")
+.classList.remove("hidden");
+
+}
+
+};
+
+</script>
+
+</body>
+</html>
