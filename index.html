@@ -2,2227 +2,3853 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Shirehulo Adam</title>
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
-body{background:#f0f2f5;color:#1c1e21}
-button{cursor:pointer;border:0}
-.hidden{display:none!important}
+
+/* =========================
+   GLOBAL
+========================= */
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f0f2f5;
+    color:#1c1e21;
+}
+
+button{
+    cursor:pointer;
+    border:0;
+}
+
+.hidden{
+    display:none !important;
+}
+
+hr{
+    border:0;
+    border-top:1px solid #ddd;
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-background:#1877f2;color:#fff;height:60px;padding:0 25px;
-display:flex;align-items:center;justify-content:space-between;
-position:sticky;top:0;z-index:20
+    background:#1877f2;
+    color:white;
+    height:60px;
+    padding:0 25px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+
+    position:sticky;
+    top:0;
+    z-index:20;
 }
-.logo{font-size:25px;font-weight:bold}
-.search{width:300px;padding:10px 15px;border:0;border-radius:20px}
-.headerRight{display:flex;gap:10px;align-items:center}
-.headerBtn{background:#fff;color:#1877f2;padding:8px 12px;border-radius:6px}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.search{
+    width:300px;
+    padding:10px 15px;
+    border:0;
+    border-radius:20px;
+    outline:none;
+}
+
+.headerRight{
+    display:flex;
+    gap:10px;
+    align-items:center;
+}
+
+.headerBtn{
+    background:white;
+    color:#1877f2;
+    padding:8px 12px;
+    border-radius:6px;
+    font-weight:bold;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
 
 .container{
-max-width:1250px;margin:20px auto;display:grid;
-grid-template-columns:230px 1fr 240px;gap:20px
-}
-.card{
-background:#fff;border-radius:10px;padding:18px;
-margin-bottom:15px;box-shadow:0 1px 4px #0001
-}
-.sidebar div{padding:12px;border-radius:8px;cursor:pointer}
-.sidebar div:hover{background:#e4e6eb}
+    max-width:1250px;
+    margin:20px auto;
 
-input,textarea,select{
-width:100%;padding:11px;border:1px solid #ddd;
-border-radius:7px;margin-top:7px;outline:none
+    display:grid;
+    grid-template-columns:230px 1fr 240px;
+    gap:20px;
 }
-input:focus,textarea:focus,select:focus{
-border-color:#1877f2;box-shadow:0 0 0 2px #1877f222
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:18px;
+    margin-bottom:15px;
+    box-shadow:0 1px 4px #0001;
 }
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar div{
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.sidebar div:hover{
+    background:#e4e6eb;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+textarea,
+input,
+select{
+    width:100%;
+    padding:11px;
+    border:1px solid #ddd;
+    border-radius:7px;
+    margin-top:7px;
+    outline:none;
+    background:white;
+}
+
+textarea:focus,
+input:focus,
+select:focus{
+    border-color:#1877f2;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
 
 .primary{
-background:#1877f2;color:#fff;padding:10px 18px;
-border-radius:6px;font-weight:bold
+    background:#1877f2;
+    color:white;
+    padding:10px 18px;
+    border-radius:6px;
+    font-weight:bold;
 }
-.secondary{
-background:#e4e6eb;color:#1c1e21;padding:9px 14px;
-border-radius:6px
-}
-.danger{
-background:#e53935;color:#fff;padding:8px 12px;border-radius:6px
-}
-.green{color:#16a34a;font-size:22px}
 
-.postBox textarea{height:80px;resize:none}
+.primary:hover{
+    background:#166fe5;
+}
+
+.secondary{
+    background:#e4e6eb;
+    color:#1c1e21;
+    padding:9px 14px;
+    border-radius:6px;
+}
+
+.secondary:hover{
+    background:#d8dadf;
+}
+
+.danger{
+    background:#e53935;
+    color:white;
+    padding:8px 12px;
+    border-radius:6px;
+}
+
+.green{
+    color:#16a34a;
+    font-size:22px;
+}
+
+
+/* =========================
+   HOME / POST
+========================= */
+
+.postBox textarea{
+    height:80px;
+    resize:none;
+}
+
 .postTools{
-display:flex;gap:8px;margin-top:10px;
-align-items:center;flex-wrap:wrap
+    display:flex;
+    gap:8px;
+    margin-top:10px;
+    align-items:center;
+    flex-wrap:wrap;
 }
+
 .photoLabel{
-background:#e4e6eb;padding:9px 13px;
-border-radius:6px;cursor:pointer;font-weight:bold
+    display:inline-block;
+    background:#e4e6eb;
+    padding:9px 13px;
+    border-radius:6px;
+    cursor:pointer;
+    font-weight:bold;
 }
-.photoLabel input{display:none}
-.post img{max-width:100%;border-radius:8px;margin:10px 0}
+
+.photoLabel input{
+    display:none;
+}
+
+.post img{
+    max-width:100%;
+    max-height:600px;
+    object-fit:contain;
+    border-radius:8px;
+    margin:10px 0;
+    display:block;
+}
+
 .actions{
-display:flex;gap:8px;border-top:1px solid #ddd;
-padding-top:10px;margin-top:10px;flex-wrap:wrap
+    display:flex;
+    gap:8px;
+    border-top:1px solid #ddd;
+    padding-top:10px;
+    margin-top:10px;
+    flex-wrap:wrap;
 }
+
+.commentBox{
+    margin-top:12px;
+}
+
+.commentItem{
+    background:#f0f2f5;
+    padding:8px 10px;
+    border-radius:8px;
+    margin-top:6px;
+}
+
+
+/* =========================
+   ACTIVE FRIENDS
+========================= */
 
 .activePerson{
-display:flex;align-items:center;gap:9px;margin:12px 0
+    display:flex;
+    align-items:center;
+    gap:9px;
+    margin:12px 0;
 }
+
 .avatar{
-width:42px;height:42px;border-radius:50%;
-object-fit:cover;background:#ddd
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    object-fit:cover;
+    background:#ddd;
 }
+
 .online{
-width:10px;height:10px;background:#22c55e;
-border-radius:50%;display:inline-block;
-margin-left:-16px;margin-top:25px;border:2px solid white
+    width:10px;
+    height:10px;
+    background:#22c55e;
+    border-radius:50%;
+    display:inline-block;
+    margin-left:-16px;
+    margin-top:25px;
+    border:2px solid white;
 }
 
-/* AUTH */
+
+/* =========================
+   LOGIN / SIGNUP
+========================= */
+
 #auth{
-min-height:100vh;display:flex;align-items:center;
-justify-content:center;background:#f0f2f5
-}
-.authBox{
-width:380px;background:#fff;padding:30px;
-border-radius:12px;box-shadow:0 3px 15px #0002
-}
-.authBox h1{text-align:center;color:#1877f2;margin-bottom:20px}
-.authBox h2{margin-bottom:8px}
-.authBox button{width:100%;margin-top:12px}
-.switch{
-text-align:center;margin-top:18px;
-color:#1877f2;cursor:pointer
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f0f2f5;
 }
 
-/* PROFILE */
-.profilePage{max-width:900px;margin:auto}
+.authBox{
+    width:380px;
+    max-width:92%;
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 3px 15px #0002;
+}
+
+.authBox h1{
+    text-align:center;
+    color:#1877f2;
+    margin-bottom:20px;
+}
+
+.authBox h2{
+    margin-bottom:10px;
+}
+
+.authBox button{
+    width:100%;
+    margin-top:12px;
+}
+
+.switch{
+    text-align:center;
+    margin-top:18px;
+    color:#1877f2;
+    cursor:pointer;
+}
+
+.authNote{
+    color:#65676b;
+    font-size:13px;
+    line-height:1.5;
+    margin-top:12px;
+}
+
+
+/* =========================
+   PROFILE
+========================= */
+
+.profilePage{
+    max-width:900px;
+    margin:auto;
+}
+
 .cover{
-height:280px;border-radius:12px 12px 0 0;
-background:#d9e2f3 center/cover no-repeat;
-position:relative
+    height:280px;
+    border-radius:12px 12px 0 0;
+    background:#d9e2f3 center/cover no-repeat;
+    position:relative;
 }
-.coverControls{position:absolute;right:15px;bottom:15px}
+
+.coverControls{
+    position:absolute;
+    right:15px;
+    bottom:15px;
+}
+
 .profileInfo{
-background:#fff;padding:0 25px 20px;
-position:relative;min-height:130px
+    background:white;
+    padding:0 25px 20px;
+    position:relative;
+    min-height:130px;
 }
+
 .profilePicWrap{
-position:absolute;left:25px;bottom:15px
+    position:absolute;
+    left:25px;
+    bottom:15px;
 }
+
 .profilePic{
-width:145px;height:145px;border-radius:50%;
-border:5px solid white;object-fit:cover;background:#ddd
+    width:145px;
+    height:145px;
+    border-radius:50%;
+    border:5px solid white;
+    object-fit:cover;
+    background:#ddd;
 }
-.profileName{margin-left:175px;padding-top:25px}
+
+.profileName{
+    margin-left:175px;
+    padding-top:25px;
+}
+
 .profileTabs{
-display:flex;gap:5px;background:#fff;
-border-top:1px solid #ddd;padding:10px;position:relative
+    display:flex;
+    gap:5px;
+    background:white;
+    border-top:1px solid #ddd;
+    padding:10px;
+    position:relative;
 }
+
 .profileTabs button{
-padding:11px 18px;background:#fff;border-radius:7px
+    padding:11px 18px;
+    background:white;
+    border-radius:7px;
 }
-.profileTabs button:hover{background:#e4e6eb}
+
+.profileTabs button:hover{
+    background:#e4e6eb;
+}
 
 .aboutGrid{
-display:grid;grid-template-columns:1fr 1fr;gap:10px
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
 }
+
 .aboutItem{
-padding:12px;background:#f5f6f7;border-radius:7px
+    padding:12px;
+    background:#f5f6f7;
+    border-radius:7px;
 }
+
+
+/* =========================
+   PROFILE MENU
+========================= */
+
 .menuBox{
-position:absolute;right:15px;top:55px;
-background:#fff;border:1px solid #ddd;
-box-shadow:0 3px 10px #0002;padding:10px;
-border-radius:8px;z-index:10
+    position:absolute;
+    right:15px;
+    top:55px;
+    background:white;
+    border:1px solid #ddd;
+    box-shadow:0 3px 10px #0002;
+    padding:10px;
+    border-radius:8px;
+    z-index:10;
+    min-width:220px;
 }
-.menuBox div{padding:10px;cursor:pointer}
-.menuBox div:hover{background:#eee}
 
-/* MESSAGE */
+.menuBox div{
+    padding:10px;
+    cursor:pointer;
+}
+
+.menuBox div:hover{
+    background:#eee;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
 .messageLayout{
-display:grid;grid-template-columns:280px 1fr;height:650px
+    display:grid;
+    grid-template-columns:280px 1fr;
+    height:650px;
 }
-.chatList{border-right:1px solid #ddd;overflow:auto}
+
+.chatList{
+    border-right:1px solid #ddd;
+    overflow:auto;
+}
+
 .chatUser{
-display:flex;gap:10px;padding:12px;
-cursor:pointer;align-items:center
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px;
+    cursor:pointer;
 }
-.chatUser:hover{background:#f0f2f5}
-.chatArea{display:flex;flex-direction:column}
-.messages{flex:1;padding:15px;overflow:auto}
+
+.chatUser:hover{
+    background:#f0f2f5;
+}
+
+.chatArea{
+    display:flex;
+    flex-direction:column;
+}
+
+.messages{
+    flex:1;
+    padding:15px;
+    overflow:auto;
+}
+
 .msg{
-max-width:65%;padding:9px 12px;
-border-radius:14px;margin:7px 0;background:#e4e6eb
+    max-width:65%;
+    padding:9px 12px;
+    border-radius:14px;
+    margin:7px 0;
+    background:#e4e6eb;
+    word-wrap:break-word;
 }
-.msg.me{margin-left:auto;background:#1877f2;color:white}
+
+.msg.me{
+    margin-left:auto;
+    background:#1877f2;
+    color:white;
+}
+
 .seenDot{
-display:inline-block;width:7px;height:7px;
-background:#1877f2;border-radius:50%;margin-left:5px
+    display:inline-block;
+    width:7px;
+    height:7px;
+    background:#1877f2;
+    border-radius:50%;
+    margin-left:5px;
 }
+
 .messageInput{
-display:flex;gap:7px;padding:10px;
-border-top:1px solid #ddd
+    display:flex;
+    gap:7px;
+    padding:10px;
+    border-top:1px solid #ddd;
 }
-.messageInput input{margin:0}
+
+.messageInput input{
+    margin:0;
+}
+
 .messageMenu{
-display:flex;gap:5px;padding:8px;
-border-bottom:1px solid #ddd;flex-wrap:wrap
+    display:flex;
+    gap:5px;
+    padding:8px;
+    border-bottom:1px solid #ddd;
+    flex-wrap:wrap;
 }
 
-/* MODAL */
+
+/* =========================
+   MODAL
+========================= */
+
 .modal{
-position:fixed;inset:0;background:#0008;
-display:flex;align-items:center;justify-content:center;
-z-index:50
-}
-.modalBox{
-background:#fff;width:500px;max-width:92%;
-max-height:90vh;overflow:auto;
-padding:25px;border-radius:12px
-}
-.modalBox h2{margin-bottom:15px}
-.modalButtons{
-display:flex;gap:8px;margin-top:15px;flex-wrap:wrap
+    position:fixed;
+    inset:0;
+    background:#0008;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
 }
 
-/* SECURITY */
-.securitySection{
-border:1px solid #e1e5ea;border-radius:10px;
-padding:15px;margin:12px 0
+.modalBox{
+    background:white;
+    width:500px;
+    max-width:92%;
+    max-height:90vh;
+    overflow:auto;
+    padding:25px;
+    border-radius:12px;
 }
-.securitySection h3{margin-bottom:10px}
-.securityRow{
-display:flex;justify-content:space-between;
-align-items:center;gap:15px;
-padding:12px 0;border-bottom:1px solid #eee
+
+.modalBox h2{
+    margin-bottom:15px;
 }
-.securityRow:last-child{border-bottom:0}
-.securityTitle{font-weight:bold}
-.securitySub{
-font-size:13px;color:#65676b;margin-top:4px
+
+.modalButtons{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+    flex-wrap:wrap;
 }
-.statusOn{color:#16a34a;font-weight:bold}
-.statusOff{color:#e53935;font-weight:bold}
-.masked{letter-spacing:2px}
-.smallBtn{
-padding:7px 10px;border-radius:6px;background:#e4e6eb
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settingsList{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    margin-top:15px;
 }
-.warning{
-background:#fff7ed;border:1px solid #fed7aa;
-padding:11px;border-radius:8px;font-size:13px;
-color:#9a3412
+
+.settingRow{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 10px;
+    border-radius:9px;
+    cursor:pointer;
+    transition:background .2s;
 }
-.successBox{
-background:#ecfdf5;border:1px solid #a7f3d0;
-padding:11px;border-radius:8px;color:#166534;
-margin-top:10px
+
+.settingRow:hover{
+    background:#f0f2f5;
 }
-.codeBox{
-font-size:30px;letter-spacing:8px;text-align:center;
-background:#f5f6f7;padding:15px;border-radius:8px;
-margin:15px 0;font-weight:bold
+
+.settingIcon{
+    width:42px;
+    height:42px;
+    background:#e4e6eb;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    flex-shrink:0;
 }
+
+.settingInfo{
+    flex:1;
+    min-width:0;
+}
+
+.settingInfo b{
+    display:block;
+    font-size:15px;
+    margin-bottom:3px;
+}
+
+.settingInfo span{
+    display:block;
+    color:#65676b;
+    font-size:13px;
+    line-height:1.4;
+    word-break:break-word;
+}
+
+.settingArrow{
+    font-size:28px;
+    color:#65676b;
+    padding-left:5px;
+}
+
+.settingStatus{
+    font-size:11px;
+    font-weight:bold;
+    color:#16a34a;
+    background:#dcfce7;
+    padding:4px 7px;
+    border-radius:5px;
+}
+
+.settingsHeader{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:15px;
+}
+
+.settingsHeader h2{
+    margin:0;
+}
+
+.settingsHeader p{
+    color:#65676b;
+    font-size:13px;
+    margin-top:3px;
+}
+
+.backButton{
+    background:#e4e6eb;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    font-size:27px;
+    line-height:1;
+}
+
+.securityInfo{
+    background:#f0f2f5;
+    padding:14px;
+    border-radius:8px;
+    line-height:1.5;
+}
+
+.securitySuccess{
+    background:#ecfdf5;
+    border:1px solid #bbf7d0;
+    padding:20px;
+    border-radius:10px;
+    text-align:center;
+    margin-top:15px;
+}
+
+.securitySuccess h3{
+    color:#15803d;
+    margin:8px 0;
+}
+
+.securitySuccess p{
+    color:#166534;
+}
+
+.demoWarning{
+    background:#fff7ed;
+    border:1px solid #fed7aa;
+    color:#9a3412;
+    padding:12px;
+    border-radius:8px;
+    font-size:13px;
+    line-height:1.5;
+    margin-bottom:15px;
+}
+
+
+/* =========================
+   FRIENDS
+========================= */
+
+.friendItem{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px;
+    background:#f5f6f7;
+    border-radius:8px;
+    margin-bottom:8px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.searchResult{
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    margin-top:10px;
+    box-shadow:0 1px 4px #0001;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:900px){
-.container{grid-template-columns:1fr;padding:10px}
-.sidebar,.right-sidebar{display:none}
-.search{width:150px}
-.profilePage{padding:10px}
-.aboutGrid{grid-template-columns:1fr}
-.messageLayout{grid-template-columns:1fr;height:600px}
-.chatList{display:none}
-.profileName{margin-left:0;padding-top:165px}
-.profilePicWrap{left:50%;transform:translateX(-50%)}
-.profileInfo{text-align:center}
+
+    .container{
+        grid-template-columns:1fr;
+        padding:10px;
+    }
+
+    .sidebar,
+    .right-sidebar{
+        display:none;
+    }
+
+    .search{
+        width:150px;
+    }
+
+    .profilePage{
+        padding:10px;
+    }
+
+    .aboutGrid{
+        grid-template-columns:1fr;
+    }
+
+    .messageLayout{
+        grid-template-columns:1fr;
+        height:600px;
+    }
+
+    .chatList{
+        display:none;
+    }
+
+    .profileName{
+        margin-left:0;
+        padding-top:170px;
+        text-align:center;
+    }
+
+    .profileInfo{
+        min-height:260px;
+    }
+
+    .profilePicWrap{
+        left:50%;
+        transform:translateX(-50%);
+    }
+
+    .profileTabs{
+        overflow-x:auto;
+    }
+
+    header{
+        padding:0 10px;
+        gap:8px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .headerRight .headerBtn:first-child{
+        display:none;
+    }
+
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- ================= LOGIN ================= -->
+
+<!-- ==================================================
+     AUTH
+================================================== -->
 
 <section id="auth">
 
-<div class="authBox" id="loginBox">
-<h1>Shirehulo Adam</h1>
-<h2>Login</h2>
+    <!-- LOGIN -->
 
-<input id="loginEmail" type="text" placeholder="Email or phone">
-<input id="loginPass" type="password" placeholder="Password">
+    <div class="authBox" id="loginBox">
 
-<button class="primary" onclick="login()">Log In</button>
+        <h1>Shirehulo Adam</h1>
 
-<div class="switch" onclick="showSignup()">
-Create New Account
-</div>
-</div>
+        <h2>Login</h2>
 
-<div class="authBox hidden" id="signupBox">
-<h1>Shirehulo Adam</h1>
-<h2>Create Account</h2>
+        <input
+            id="loginEmail"
+            type="text"
+            placeholder="Email or phone"
+        >
 
-<input id="signupName" placeholder="Full name">
-<input id="signupEmail" type="email" placeholder="Email">
-<input id="signupPhone" placeholder="Phone number">
-<input id="signupPass" type="password" placeholder="Password">
+        <input
+            id="loginPass"
+            type="password"
+            placeholder="Password"
+        >
 
-<button class="primary" onclick="signup()">Sign Up</button>
+        <button
+            class="primary"
+            onclick="login()"
+        >
+            Log In
+        </button>
 
-<div class="switch" onclick="showLogin()">
-Already have an account? Login
-</div>
-</div>
+        <div
+            class="switch"
+            onclick="showSignup()"
+        >
+            Create New Account
+        </div>
+
+    </div>
+
+
+    <!-- SIGNUP -->
+
+    <div
+        class="authBox hidden"
+        id="signupBox"
+    >
+
+        <h1>Shirehulo Adam</h1>
+
+        <h2>Create Account</h2>
+
+        <input
+            id="signupName"
+            placeholder="Full name"
+        >
+
+        <input
+            id="signupEmail"
+            type="email"
+            placeholder="Gmail / Email"
+        >
+
+        <input
+            id="signupPhone"
+            type="tel"
+            placeholder="Phone number"
+        >
+
+        <input
+            id="signupPass"
+            type="password"
+            placeholder="Password"
+        >
+
+        <button
+            class="primary"
+            onclick="signup()"
+        >
+            Sign Up
+        </button>
+
+        <p class="authNote">
+            Password must contain at least 6 characters.
+        </p>
+
+        <div
+            class="switch"
+            onclick="showLogin()"
+        >
+            Already have an account? Login
+        </div>
+
+    </div>
 
 </section>
 
 
-<!-- ================= APP ================= -->
 
-<section id="app" class="hidden">
+<!-- ==================================================
+     MAIN APP
+================================================== -->
+
+<section
+    id="app"
+    class="hidden"
+>
+
 
 <header>
 
-<div class="logo">Shirehulo Adam</div>
+    <div class="logo">
+        Shirehulo Adam
+    </div>
 
-<input
-class="search"
-id="searchBox"
-placeholder="Search Shirehulo Adam..."
-oninput="searchUsers()">
+    <input
+        class="search"
+        id="searchBox"
+        placeholder="Search Shirehulo Adam..."
+        oninput="searchUsers()"
+    >
 
-<div class="headerRight">
+    <div class="headerRight">
 
-<button class="headerBtn" onclick="openProfile()">
-👤 Profile
-</button>
+        <button
+            class="headerBtn"
+            onclick="openProfile()"
+        >
+            👤 Profile
+        </button>
 
-<button class="headerBtn" onclick="logout()">
-Logout
-</button>
+        <button
+            class="headerBtn"
+            onclick="logout()"
+        >
+            Logout
+        </button>
 
-</div>
+    </div>
+
 </header>
+
 
 
 <div class="container">
 
-<!-- LEFT SIDEBAR -->
+
+<!-- ==================================================
+     LEFT SIDEBAR
+================================================== -->
 
 <aside class="sidebar card">
 
-<div onclick="showHome()">🏠 Home</div>
+    <div onclick="showHome()">
+        🏠 Home
+    </div>
 
-<div onclick="openProfile()">👤 Profile</div>
+    <div onclick="openProfile()">
+        👤 Profile
+    </div>
 
-<div onclick="showMessages()">💬 Messages</div>
+    <div onclick="showMessages()">
+        💬 Messages
+    </div>
 
-<div onclick="showFriends()">👥 Friends</div>
+    <div onclick="showFriends()">
+        👥 Friends
+    </div>
 
-<div onclick="showFriendRequests()">
-🤝 Friend Requests
-</div>
+    <div onclick="showFriendRequests()">
+        🤝 Friend Requests
+    </div>
 
-<div onclick="openPrivacy()">
-🔐 Privacy & Security
-</div>
-
-<div onclick="openSettings()">
-⚙️ Settings
-</div>
+    <div onclick="openSettings()">
+        ⚙️ Settings
+    </div>
 
 </aside>
 
 
-<!-- MAIN -->
+
+<!-- ==================================================
+     MAIN CONTENT
+================================================== -->
 
 <main id="mainContent">
 
 
-<!-- HOME -->
+<!-- ==================================================
+     HOME
+================================================== -->
 
 <div id="homePage">
 
-<div class="card postBox">
+    <div class="card postBox">
 
-<h3>Create Post</h3>
+        <h3>Create Post</h3>
 
-<textarea
-id="postText"
-placeholder="What's on your mind?">
-</textarea>
+        <textarea
+            id="postText"
+            placeholder="What's on your mind?"
+        ></textarea>
 
-<div class="postTools">
+        <div class="postTools">
 
-<label class="photoLabel">
-📷 Photo
-<input
-type="file"
-id="postPhoto"
-accept="image/*"
-onchange="previewPostPhoto(event)">
-</label>
+            <label class="photoLabel">
 
-<button class="primary" onclick="createPost()">
-Post
-</button>
+                📷 Photo
 
-</div>
+                <input
+                    type="file"
+                    id="postPhoto"
+                    accept="image/*"
+                    onchange="previewPostPhoto(event)"
+                >
 
-<img
-id="postPreview"
-class="hidden"
-style="max-height:250px;object-fit:cover">
+            </label>
 
-</div>
+            <button
+                class="primary"
+                onclick="createPost()"
+            >
+                Post
+            </button>
 
-<div id="posts"></div>
+        </div>
 
-</div>
+        <img
+            id="postPreview"
+            class="hidden"
+            style="max-height:250px;object-fit:cover"
+        >
 
+    </div>
 
-<!-- PROFILE -->
-
-<div id="profilePage" class="profilePage hidden">
-
-<div class="card" style="padding:0;overflow:hidden">
-
-<div class="cover" id="coverPhoto">
-
-<div class="coverControls">
-
-<label class="photoLabel">
-📷 Change Cover
-
-<input
-type="file"
-accept="image/*"
-onchange="uploadCover(event)">
-
-</label>
-
-</div>
-</div>
-
-
-<div class="profileInfo">
-
-<div class="profilePicWrap">
-
-<img
-id="profilePhoto"
-class="profilePic"
-src=""
-alt="Profile">
-
-<label
-class="photoLabel"
-style="position:absolute;bottom:5px;right:-10px">
-
-📷
-
-<input
-type="file"
-accept="image/*"
-onchange="uploadProfile(event)">
-
-</label>
+    <div id="posts"></div>
 
 </div>
 
 
-<div class="profileName">
 
-<h2 id="profileName">
-Your Name
-</h2>
-
-<p>Shirehulo Adam Community</p>
-
-</div>
-
-</div>
-
-
-<div class="profileTabs">
-
-<button onclick="profileTab('all')">
-All
-</button>
-
-<button onclick="profileTab('photo')">
-Photo
-</button>
-
-<button onclick="profileTab('video')">
-Video
-</button>
-
-<button onclick="profileTab('about')">
-About
-</button>
-
-<button onclick="toggleProfileMenu()">
-⋯
-</button>
-
-
-<div id="profileMenu" class="menuBox hidden">
-
-<div onclick="openPrivacy()">
-👁 Who can see my profile
-</div>
-
-<div onclick="openPrivacy()">
-👍 Who can react
-</div>
-
-<div onclick="openPrivacy()">
-💬 Who can message me
-</div>
-
-<div onclick="openPrivacy()">
-🔒 Privacy & Security
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div id="profileContent">
-
-<div class="card">
-
-<h3>About</h3>
-<br>
-
-<div class="aboutGrid">
-
-<div class="aboutItem">
-🎓 Education:
-<b id="education">Not added</b>
-</div>
-
-<div class="aboutItem">
-💍 Married Status:
-<b id="married">Not added</b>
-</div>
-
-<div class="aboutItem">
-💼 Workplace:
-<b id="workplace">Not added</b>
-</div>
-
-<div class="aboutItem">
-📈 Experience:
-<b id="experience">Not added</b>
-</div>
-
-<div class="aboutItem">
-🎂 Date of Birth:
-<b id="dob">Not added</b>
-</div>
-
-<div class="aboutItem">
-⏳ Age:
-<b id="age">Not added</b>
-</div>
-
-</div>
-
-<br>
-
-<button class="primary" onclick="editAbout()">
-Edit Profile
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- MESSAGES -->
-
-<div id="messagePage" class="hidden">
-
-<div class="card messageLayout">
-
-<div class="chatList">
-
-<h3 style="padding:12px">
-Messages
-</h3>
-
-<div class="chatUser" onclick="openChat('Rahim')">
-
-<img
-class="avatar"
-src="https://i.pravatar.cc/100?img=12"
-alt="Rahim">
-
-<div>Rahim</div>
-
-</div>
-
-
-<div class="chatUser" onclick="openChat('Karim')">
-
-<img
-class="avatar"
-src="https://i.pravatar.cc/100?img=13"
-alt="Karim">
-
-<div>Karim</div>
-
-</div>
-
-
-<div class="chatUser" onclick="openChat('Hasan')">
-
-<img
-class="avatar"
-src="https://i.pravatar.cc/100?img=14"
-alt="Hasan">
-
-<div>Hasan</div>
-
-</div>
-
-</div>
-
-
-<div class="chatArea">
-
-<div class="messageMenu">
-
-<button class="secondary"
-onclick="alert('Chat archived')">
-Archive
-</button>
-
-<button class="secondary"
-onclick="alert('Chat restricted')">
-Restrict
-</button>
-
-<button class="secondary"
-onclick="deleteChat()">
-Delete
-</button>
-
-<button class="secondary"
-onclick="toggleAutoReply()">
-Auto Reply
-</button>
-
-</div>
-
+<!-- ==================================================
+     PROFILE
+================================================== -->
 
 <div
-id="chatTitle"
-style="padding:10px;font-weight:bold">
+    id="profilePage"
+    class="profilePage hidden"
+>
 
-Select a chat
+    <div
+        class="card"
+        style="padding:0;overflow:hidden"
+    >
+
+        <div
+            class="cover"
+            id="coverPhoto"
+        >
+
+            <div class="coverControls">
+
+                <label class="photoLabel">
+
+                    📷 Change Cover
+
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onchange="uploadCover(event)"
+                    >
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="profileInfo">
+
+            <div class="profilePicWrap">
+
+                <img
+                    id="profilePhoto"
+                    class="profilePic"
+                    src=""
+                >
+
+                <label
+                    class="photoLabel"
+                    style="position:absolute;bottom:5px;right:-10px"
+                >
+
+                    📷
+
+                    <input
+                        type="file"
+                        accept="image/*"
+                        onchange="uploadProfile(event)"
+                    >
+
+                </label>
+
+            </div>
+
+
+            <div class="profileName">
+
+                <h2 id="profileName">
+                    Your Name
+                </h2>
+
+                <p>
+                    Shirehulo Adam Community
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="profileTabs">
+
+            <button onclick="profileTab('all')">
+                All
+            </button>
+
+            <button onclick="profileTab('photo')">
+                Photo
+            </button>
+
+            <button onclick="profileTab('video')">
+                Video
+            </button>
+
+            <button onclick="profileTab('about')">
+                About
+            </button>
+
+            <button onclick="toggleProfileMenu()">
+                ⋯
+            </button>
+
+
+            <div
+                id="profileMenu"
+                class="menuBox hidden"
+            >
+
+                <div onclick="openSettings()">
+                    🔐 Privacy & Security
+                </div>
+
+                <div onclick="openSettings()">
+                    ⚙️ Settings
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div id="profileContent">
+
+        <div class="card">
+
+            <h3>About</h3>
+
+            <br>
+
+            <div class="aboutGrid">
+
+                <div class="aboutItem">
+                    🎓 Education:
+                    <b id="education">
+                        Not added
+                    </b>
+                </div>
+
+                <div class="aboutItem">
+                    💍 Married Status:
+                    <b id="married">
+                        Not added
+                    </b>
+                </div>
+
+                <div class="aboutItem">
+                    💼 Workplace:
+                    <b id="workplace">
+                        Not added
+                    </b>
+                </div>
+
+                <div class="aboutItem">
+                    📈 Experience:
+                    <b id="experience">
+                        Not added
+                    </b>
+                </div>
+
+                <div class="aboutItem">
+                    🎂 Date of Birth:
+                    <b id="dob">
+                        Not added
+                    </b>
+                </div>
+
+                <div class="aboutItem">
+                    ⏳ Age:
+                    <b id="age">
+                        Not added
+                    </b>
+                </div>
+
+            </div>
+
+            <br>
+
+            <button
+                class="primary"
+                onclick="editAbout()"
+            >
+                Edit Profile
+            </button>
+
+        </div>
+
+    </div>
 
 </div>
 
 
-<div id="messages" class="messages"></div>
+
+<!-- ==================================================
+     MESSAGES
+================================================== -->
+
+<div
+    id="messagePage"
+    class="hidden"
+>
+
+    <div class="card messageLayout">
+
+        <div class="chatList">
+
+            <h3 style="padding:12px">
+                Messages
+            </h3>
 
 
-<div class="messageInput">
+            <div
+                class="chatUser"
+                onclick="openChat('Rahim')"
+            >
 
-<input
-id="messageInput"
-placeholder="Write a message..."
-onkeydown="if(event.key==='Enter')sendMessage()">
+                <img
+                    class="avatar"
+                    src="https://i.pravatar.cc/100?img=12"
+                >
 
-<button
-class="primary"
-onclick="sendMessage()">
-Send
-</button>
+                <div>
+                    Rahim
+                </div>
+
+            </div>
+
+
+            <div
+                class="chatUser"
+                onclick="openChat('Karim')"
+            >
+
+                <img
+                    class="avatar"
+                    src="https://i.pravatar.cc/100?img=13"
+                >
+
+                <div>
+                    Karim
+                </div>
+
+            </div>
+
+
+            <div
+                class="chatUser"
+                onclick="openChat('Hasan')"
+            >
+
+                <img
+                    class="avatar"
+                    src="https://i.pravatar.cc/100?img=14"
+                >
+
+                <div>
+                    Hasan
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="chatArea">
+
+            <div class="messageMenu">
+
+                <button
+                    class="secondary"
+                    onclick="archiveChat()"
+                >
+                    Archive
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="restrictChat()"
+                >
+                    Restrict
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="deleteChat()"
+                >
+                    Delete
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="toggleAutoReply()"
+                >
+                    Auto Reply
+                </button>
+
+            </div>
+
+
+            <div
+                id="chatTitle"
+                style="padding:10px;font-weight:bold"
+            >
+                Select a chat
+            </div>
+
+
+            <div
+                id="messages"
+                class="messages"
+            ></div>
+
+
+            <div class="messageInput">
+
+                <input
+                    id="messageInput"
+                    placeholder="Write a message..."
+                    onkeydown="if(event.key==='Enter')sendMessage()"
+                >
+
+                <button
+                    class="primary"
+                    onclick="sendMessage()"
+                >
+                    Send
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
 
-</div>
+
+
+<!-- ==================================================
+     FRIENDS
+================================================== -->
+
+<div
+    id="friendsPage"
+    class="hidden"
+>
+
+    <div class="card">
+
+        <h2>Friends</h2>
+
+        <br>
+
+        <div class="friendItem">
+            👤 Rahim
+        </div>
+
+        <div class="friendItem">
+            👤 Karim
+        </div>
+
+        <div class="friendItem">
+            👤 Hasan
+        </div>
+
+    </div>
 
 </div>
 
-</div>
 
 
-<!-- FRIENDS -->
+<!-- ==================================================
+     FRIEND REQUESTS
+================================================== -->
 
-<div id="friendsPage" class="hidden">
+<div
+    id="requestPage"
+    class="hidden"
+>
 
-<div class="card">
+    <div class="card">
 
-<h2>Friends</h2>
-<br>
+        <h2>Friend Requests</h2>
 
-<p>👤 Rahim</p>
-<br>
+        <br>
 
-<p>👤 Karim</p>
-<br>
+        <div class="card">
 
-<p>👤 Hasan</p>
+            <b>
+                Rahim wants to be your friend.
+            </b>
 
-</div>
+            <br>
+            <br>
 
-</div>
+            <button
+                class="green"
+                onclick="acceptRequest(this)"
+            >
+                ✔️
+            </button>
 
+            <button
+                style="font-size:22px"
+                onclick="rejectRequest(this)"
+            >
+                ❌
+            </button>
 
-<!-- REQUESTS -->
+            <button
+                style="font-size:22px"
+                onclick="blockUser(this)"
+            >
+                🚫
+            </button>
 
-<div id="requestPage" class="hidden">
+        </div>
 
-<div class="card">
-
-<h2>Friend Requests</h2>
-<br>
-
-<div class="card">
-
-<b>Rahim wants to be your friend.</b>
-
-<br><br>
-
-<button
-class="green"
-onclick="acceptRequest(this)">
-✔️
-</button>
-
-<button
-style="font-size:22px"
-onclick="rejectRequest(this)">
-❌
-</button>
-
-<button
-style="font-size:22px"
-onclick="blockUser(this)">
-🚫
-</button>
+    </div>
 
 </div>
 
-</div>
-
-</div>
 
 </main>
 
 
-<!-- RIGHT SIDEBAR -->
+
+<!-- ==================================================
+     RIGHT SIDEBAR
+================================================== -->
 
 <aside class="right-sidebar card">
 
-<h3>Active Friends</h3>
-
-<div class="activePerson">
-
-<img
-class="avatar"
-src="https://i.pravatar.cc/100?img=12">
-
-<span>Rahim</span>
-<span class="online"></span>
-
-</div>
+    <h3>
+        Active Friends
+    </h3>
 
 
-<div class="activePerson">
+    <div class="activePerson">
 
-<img
-class="avatar"
-src="https://i.pravatar.cc/100?img=13">
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=12"
+        >
 
-<span>Karim</span>
-<span class="online"></span>
+        <span>
+            Rahim
+        </span>
 
-</div>
+        <span class="online"></span>
+
+    </div>
 
 
-<div class="activePerson">
+    <div class="activePerson">
 
-<img
-class="avatar"
-src="https://i.pravatar.cc/100?img=14">
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=13"
+        >
 
-<span>Hasan</span>
-<span class="online"></span>
+        <span>
+            Karim
+        </span>
 
-</div>
+        <span class="online"></span>
+
+    </div>
+
+
+    <div class="activePerson">
+
+        <img
+            class="avatar"
+            src="https://i.pravatar.cc/100?img=14"
+        >
+
+        <span>
+            Hasan
+        </span>
+
+        <span class="online"></span>
+
+    </div>
 
 </aside>
+
 
 </div>
 
 </section>
 
 
-<!-- ================= MODAL ================= -->
 
-<div id="modal" class="modal hidden">
+<!-- ==================================================
+     MODAL
+================================================== -->
 
 <div
-class="modalBox"
-id="modalContent">
-</div>
+    id="modal"
+    class="modal hidden"
+>
+
+    <div
+        class="modalBox"
+        id="modalContent"
+    ></div>
 
 </div>
+
 
 
 <script>
 
-/* ================= DATA ================= */
+/* =====================================================
+   STORAGE HELPERS
+===================================================== */
 
-let currentUser =
-JSON.parse(localStorage.getItem("shirehuloUser")) || null;
+function getUsers(){
+
+    return JSON.parse(
+        localStorage.getItem("shirehuloUsers")
+    ) || [];
+
+}
+
+function saveUsers(users){
+
+    localStorage.setItem(
+        "shirehuloUsers",
+        JSON.stringify(users)
+    );
+
+}
+
+function getCurrentUser(){
+
+    return JSON.parse(
+        localStorage.getItem("shirehuloCurrentUser")
+    ) || null;
+
+}
+
+function setCurrentUser(user){
+
+    localStorage.setItem(
+        "shirehuloCurrentUser",
+        JSON.stringify(user)
+    );
+
+}
+
+
+/* =====================================================
+   CURRENT USER
+===================================================== */
+
+let currentUser = getCurrentUser();
 
 let posts =
-JSON.parse(localStorage.getItem("shirehuloPosts")) || [];
+    JSON.parse(
+        localStorage.getItem("shirehuloPosts")
+    ) || [];
 
 let profileData =
-JSON.parse(localStorage.getItem("shirehuloProfile")) || {
+    JSON.parse(
+        localStorage.getItem("shirehuloProfile")
+    ) || {
 
-name:"Your Name",
-education:"Not added",
-married:"Not added",
-workplace:"Not added",
-experience:"Not added",
-dob:"",
-profilePhoto:"",
-coverPhoto:""
+        name:"Your Name",
+        education:"Not added",
+        married:"Not added",
+        workplace:"Not added",
+        experience:"Not added",
+        dob:"",
+        profilePhoto:"",
+        coverPhoto:""
 
-};
+    };
 
-let currentChat="";
-let autoReply=false;
+let currentChat = "";
+let autoReply = false;
 
 
-function getUser(){
+/* =====================================================
+   SECURITY DATA
+===================================================== */
 
-return JSON.parse(
-localStorage.getItem("shirehuloUser")
-) || {};
+function getSecurity(){
+
+    return JSON.parse(
+        localStorage.getItem("shirehuloSecurity")
+    ) || {
+
+        twoFactor:false,
+
+        profilePrivacy:"Everyone",
+
+        reactionPrivacy:"Everyone",
+
+        messagePrivacy:"Everyone"
+
+    };
+
+}
+
+function saveSecurity(security){
+
+    localStorage.setItem(
+        "shirehuloSecurity",
+        JSON.stringify(security)
+    );
 
 }
 
 
-function saveUser(user){
-
-localStorage.setItem(
-"shirehuloUser",
-JSON.stringify(user)
-);
-
-currentUser=user;
-
-}
-
-
-/* ================= AUTH ================= */
+/* =====================================================
+   AUTH
+===================================================== */
 
 function showSignup(){
 
-document.getElementById("loginBox")
-.classList.add("hidden");
+    document
+        .getElementById("loginBox")
+        .classList.add("hidden");
 
-document.getElementById("signupBox")
-.classList.remove("hidden");
+    document
+        .getElementById("signupBox")
+        .classList.remove("hidden");
 
 }
 
 
 function showLogin(){
 
-document.getElementById("signupBox")
-.classList.add("hidden");
+    document
+        .getElementById("signupBox")
+        .classList.add("hidden");
 
-document.getElementById("loginBox")
-.classList.remove("hidden");
+    document
+        .getElementById("loginBox")
+        .classList.remove("hidden");
 
 }
 
+
+/* =====================================================
+   SIGNUP
+===================================================== */
 
 function signup(){
 
-let name=
-document.getElementById("signupName")
-.value.trim();
+    let name =
+        document
+        .getElementById("signupName")
+        .value
+        .trim();
 
-let email=
-document.getElementById("signupEmail")
-.value.trim();
+    let email =
+        document
+        .getElementById("signupEmail")
+        .value
+        .trim();
 
-let phone=
-document.getElementById("signupPhone")
-.value.trim();
+    let phone =
+        document
+        .getElementById("signupPhone")
+        .value
+        .trim();
 
-let pass=
-document.getElementById("signupPass")
-.value;
+    let pass =
+        document
+        .getElementById("signupPass")
+        .value;
 
 
-if(!name||!email||!pass){
+    if(!name || !email || !pass){
 
-alert(
-"Name, Email and Password are required."
-);
+        alert(
+            "Name, Email and Password are required."
+        );
 
-return;
+        return;
+
+    }
+
+
+    if(pass.length < 6){
+
+        alert(
+            "Password must be at least 6 characters."
+        );
+
+        return;
+
+    }
+
+
+    if(!email.includes("@")){
+
+        alert(
+            "Please enter a valid email."
+        );
+
+        return;
+
+    }
+
+
+    let users = getUsers();
+
+
+    let exists = users.find(
+        user =>
+            user.email.toLowerCase() ===
+            email.toLowerCase()
+    );
+
+
+    if(exists){
+
+        alert(
+            "An account with this email already exists."
+        );
+
+        return;
+
+    }
+
+
+    let user = {
+
+        id:Date.now(),
+
+        name:name,
+
+        email:email,
+
+        phone:phone,
+
+        pass:pass
+
+    };
+
+
+    users.push(user);
+
+    saveUsers(users);
+
+    setCurrentUser(user);
+
+
+    profileData = {
+
+        name:name,
+
+        education:"Not added",
+
+        married:"Not added",
+
+        workplace:"Not added",
+
+        experience:"Not added",
+
+        dob:"",
+
+        profilePhoto:"",
+
+        coverPhoto:""
+
+    };
+
+
+    localStorage.setItem(
+        "shirehuloProfile",
+        JSON.stringify(profileData)
+    );
+
+
+    localStorage.setItem(
+        "shirehuloSecurity",
+        JSON.stringify({
+
+            twoFactor:false,
+
+            profilePrivacy:"Everyone",
+
+            reactionPrivacy:"Everyone",
+
+            messagePrivacy:"Everyone"
+
+        })
+    );
+
+
+    alert(
+        "Account created successfully!"
+    );
+
+
+    startApp();
 
 }
 
 
-if(pass.length<6){
-
-alert(
-"Password must be at least 6 characters."
-);
-
-return;
-
-}
-
-
-let user={
-
-name:name,
-email:email,
-phone:phone,
-pass:pass,
-
-twoFactorEnabled:false,
-twoFactorCode:""
-
-};
-
-
-saveUser(user);
-
-
-profileData.name=name;
-
-localStorage.setItem(
-"shirehuloProfile",
-JSON.stringify(profileData)
-);
-
-
-alert("Account created successfully!");
-
-startApp();
-
-}
-
+/* =====================================================
+   LOGIN
+===================================================== */
 
 function login(){
 
-let email=
-document.getElementById("loginEmail")
-.value.trim();
+    let email =
+        document
+        .getElementById("loginEmail")
+        .value
+        .trim();
 
-let pass=
-document.getElementById("loginPass")
-.value;
-
-let user=getUser();
-
-
-if(!user.email){
-
-alert(
-"No account found. Please Sign Up first."
-);
-
-return;
-
-}
+    let pass =
+        document
+        .getElementById("loginPass")
+        .value;
 
 
-if(
-(email===user.email||email===user.phone)
-&&
-pass===user.pass
-){
-
-currentUser=user;
-
-if(user.twoFactorEnabled){
-
-showTwoFactorLogin();
-
-}else{
-
-startApp();
-
-}
-
-}else{
-
-alert(
-"Wrong email/phone or password."
-);
-
-}
-
-}
+    let users = getUsers();
 
 
-function showTwoFactorLogin(){
+    let user = users.find(
 
-openModal(`
+        u =>
+            (
+                u.email.toLowerCase() ===
+                email.toLowerCase()
 
-<h2>🛡️ Two-Factor Verification</h2>
+                ||
 
-<p>
-Your account has Two-Factor Authentication enabled.
-</p>
+                u.phone === email
+            )
 
-<p style="margin-top:8px;color:#65676b">
+            &&
 
-Enter the 6-digit verification code.
+            u.pass === pass
 
-</p>
+    );
 
-<input
-id="login2FACode"
-inputmode="numeric"
-maxlength="6"
-placeholder="6-digit code">
 
-<div class="modalButtons">
+    if(!user){
 
-<button
-class="primary"
-onclick="verifyTwoFactorLogin()">
+        alert(
+            "Wrong email/phone or password."
+        );
 
-Verify & Login
+        return;
 
-</button>
+    }
 
-<button
-class="secondary"
-onclick="closeModal()">
 
-Cancel
+    setCurrentUser(user);
 
-</button>
+    loadUserData(user);
 
-</div>
-
-<div class="warning" style="margin-top:12px">
-
-Demo mode: real SMS, email or authenticator
-verification requires a backend service.
-
-</div>
-
-`);
+    startApp();
 
 }
 
 
-function verifyTwoFactorLogin(){
+/* =====================================================
+   USER DATA
+===================================================== */
 
-let code=
-document.getElementById("login2FACode")
-.value.trim();
+function loadUserData(user){
 
-let user=getUser();
+    let allProfiles =
+        JSON.parse(
+            localStorage.getItem(
+                "shirehuloProfiles"
+            )
+        ) || {};
 
 
-if(!/^\d{6}$/.test(code)){
+    if(
+        allProfiles[user.id]
+    ){
 
-alert(
-"Enter a valid 6-digit code."
-);
+        profileData =
+            allProfiles[user.id];
 
-return;
+    }else{
+
+        profileData = {
+
+            name:user.name,
+
+            education:"Not added",
+
+            married:"Not added",
+
+            workplace:"Not added",
+
+            experience:"Not added",
+
+            dob:"",
+
+            profilePhoto:"",
+
+            coverPhoto:""
+
+        };
+
+    }
+
+
+    localStorage.setItem(
+        "shirehuloProfile",
+        JSON.stringify(profileData)
+    );
+
+
+    let allSecurity =
+        JSON.parse(
+            localStorage.getItem(
+                "shirehuloSecurityUsers"
+            )
+        ) || {};
+
+
+    if(!allSecurity[user.id]){
+
+        allSecurity[user.id] = {
+
+            twoFactor:false,
+
+            profilePrivacy:"Everyone",
+
+            reactionPrivacy:"Everyone",
+
+            messagePrivacy:"Everyone"
+
+        };
+
+        localStorage.setItem(
+            "shirehuloSecurityUsers",
+            JSON.stringify(allSecurity)
+        );
+
+    }
+
+
+    localStorage.setItem(
+        "shirehuloSecurity",
+        JSON.stringify(
+            allSecurity[user.id]
+        )
+    );
 
 }
 
 
-if(code===user.twoFactorCode){
+/* =====================================================
+   SAVE PROFILE FOR USER
+===================================================== */
 
-closeModal();
+function saveUserProfile(){
 
-startApp();
+    if(!currentUser)return;
 
-}else{
 
-alert(
-"Invalid verification code."
-);
+    let allProfiles =
+        JSON.parse(
+            localStorage.getItem(
+                "shirehuloProfiles"
+            )
+        ) || {};
+
+
+    allProfiles[currentUser.id] =
+        profileData;
+
+
+    localStorage.setItem(
+        "shirehuloProfiles",
+        JSON.stringify(allProfiles)
+    );
+
+
+    localStorage.setItem(
+        "shirehuloProfile",
+        JSON.stringify(profileData)
+    );
 
 }
 
+
+/* =====================================================
+   SAVE SECURITY FOR USER
+===================================================== */
+
+function saveUserSecurity(security){
+
+    if(!currentUser)return;
+
+
+    let allSecurity =
+        JSON.parse(
+            localStorage.getItem(
+                "shirehuloSecurityUsers"
+            )
+        ) || {};
+
+
+    allSecurity[currentUser.id] =
+        security;
+
+
+    localStorage.setItem(
+        "shirehuloSecurityUsers",
+        JSON.stringify(allSecurity)
+    );
+
+
+    localStorage.setItem(
+        "shirehuloSecurity",
+        JSON.stringify(security)
+    );
+
 }
 
+
+/* =====================================================
+   LOGOUT
+===================================================== */
 
 function logout(){
 
-localStorage.removeItem(
-"shirehuloLogin"
-);
+    localStorage.removeItem(
+        "shirehuloCurrentUser"
+    );
 
-document.getElementById("app")
-.classList.add("hidden");
+    currentUser = null;
 
-document.getElementById("auth")
-.classList.remove("hidden");
+    document
+        .getElementById("app")
+        .classList.add("hidden");
 
-document.getElementById("loginPass")
-.value="";
+    document
+        .getElementById("auth")
+        .classList.remove("hidden");
+
+    showLogin();
 
 }
 
 
-/* ================= START ================= */
+/* =====================================================
+   START APP
+===================================================== */
 
 function startApp(){
 
-currentUser=getUser();
+    currentUser =
+        getCurrentUser();
 
-document.getElementById("auth")
-.classList.add("hidden");
 
-document.getElementById("app")
-.classList.remove("hidden");
+    if(!currentUser){
 
-loadProfile();
+        document
+            .getElementById("auth")
+            .classList.remove("hidden");
 
-renderPosts();
+        return;
 
-showHome();
+    }
 
-localStorage.setItem(
-"shirehuloLogin",
-"true"
-);
+
+    document
+        .getElementById("auth")
+        .classList.add("hidden");
+
+    document
+        .getElementById("app")
+        .classList.remove("hidden");
+
+
+    loadUserData(currentUser);
+
+    loadProfile();
+
+    renderPosts();
+
+    showHome();
 
 }
 
 
-/* ================= PAGE CONTROL ================= */
+/* =====================================================
+   PAGE CONTROL
+===================================================== */
 
 function hidePages(){
 
-[
-"homePage",
-"profilePage",
-"messagePage",
-"friendsPage",
-"requestPage"
+    [
+        "homePage",
+        "profilePage",
+        "messagePage",
+        "friendsPage",
+        "requestPage"
 
-].forEach(id=>{
+    ].forEach(
 
-document.getElementById(id)
-.classList.add("hidden");
+        id => {
 
-});
+            document
+                .getElementById(id)
+                .classList.add("hidden");
+
+        }
+
+    );
 
 }
 
 
 function showHome(){
 
-hidePages();
+    hidePages();
 
-document.getElementById("homePage")
-.classList.remove("hidden");
+    document
+        .getElementById("homePage")
+        .classList.remove("hidden");
 
 }
 
 
 function openProfile(){
 
-hidePages();
+    hidePages();
 
-document.getElementById("profilePage")
-.classList.remove("hidden");
+    document
+        .getElementById("profilePage")
+        .classList.remove("hidden");
 
-loadProfile();
+    loadProfile();
 
 }
 
 
 function showMessages(){
 
-hidePages();
+    hidePages();
 
-document.getElementById("messagePage")
-.classList.remove("hidden");
+    document
+        .getElementById("messagePage")
+        .classList.remove("hidden");
 
 }
 
 
 function showFriends(){
 
-hidePages();
+    hidePages();
 
-document.getElementById("friendsPage")
-.classList.remove("hidden");
+    document
+        .getElementById("friendsPage")
+        .classList.remove("hidden");
 
 }
 
 
 function showFriendRequests(){
 
-hidePages();
+    hidePages();
 
-document.getElementById("requestPage")
-.classList.remove("hidden");
+    document
+        .getElementById("requestPage")
+        .classList.remove("hidden");
 
 }
 
 
-/* ================= PROFILE ================= */
+/* =====================================================
+   PROFILE
+===================================================== */
 
 function loadProfile(){
 
-document.getElementById("profileName")
-.textContent=profileData.name;
-
-document.getElementById("education")
-.textContent=profileData.education;
-
-document.getElementById("married")
-.textContent=profileData.married;
-
-document.getElementById("workplace")
-.textContent=profileData.workplace;
-
-document.getElementById("experience")
-.textContent=profileData.experience;
-
-document.getElementById("dob")
-.textContent=
-profileData.dob||"Not added";
+    if(!currentUser)return;
 
 
-if(profileData.dob){
+    document
+        .getElementById("profileName")
+        .textContent =
+            profileData.name ||
+            currentUser.name;
 
-let birth=
-new Date(profileData.dob+"T00:00:00");
 
-let now=new Date();
+    document
+        .getElementById("education")
+        .textContent =
+            profileData.education;
 
-let years=
-now.getFullYear()-birth.getFullYear();
 
-let birthday=
-new Date(
-now.getFullYear(),
-birth.getMonth(),
-birth.getDate()
-);
+    document
+        .getElementById("married")
+        .textContent =
+            profileData.married;
 
-if(now<birthday)years--;
 
-let lastBirthday=
-new Date(
-birth.getFullYear()+years,
-birth.getMonth(),
-birth.getDate()
-);
+    document
+        .getElementById("workplace")
+        .textContent =
+            profileData.workplace;
 
-let days=
-Math.floor(
-(now-lastBirthday)/
-(1000*60*60*24)
-);
 
-document.getElementById("age")
-.textContent=
-years+" years "+days+" days";
+    document
+        .getElementById("experience")
+        .textContent =
+            profileData.experience;
 
-}else{
 
-document.getElementById("age")
-.textContent="Not added";
+    document
+        .getElementById("dob")
+        .textContent =
+            profileData.dob ||
+            "Not added";
+
+
+    calculateAge();
+
+
+    if(profileData.profilePhoto){
+
+        document
+            .getElementById("profilePhoto")
+            .src =
+                profileData.profilePhoto;
+
+    }else{
+
+        document
+            .getElementById("profilePhoto")
+            .src =
+                "https://i.pravatar.cc/300?img=11";
+
+    }
+
+
+    let cover =
+        document.getElementById(
+            "coverPhoto"
+        );
+
+
+    if(profileData.coverPhoto){
+
+        cover.style.backgroundImage =
+            "url('" +
+            profileData.coverPhoto +
+            "')";
+
+    }else{
+
+        cover.style.backgroundImage =
+            "";
+
+    }
 
 }
 
 
-document.getElementById("profilePhoto")
-.src=
-profileData.profilePhoto||
-"https://i.pravatar.cc/300?img=11";
+/* =====================================================
+   AGE
+===================================================== */
+
+function calculateAge(){
+
+    let ageElement =
+        document.getElementById("age");
 
 
-document.getElementById("coverPhoto")
-.style.backgroundImage=
-profileData.coverPhoto
-?
-"url('"+profileData.coverPhoto+"')"
-:
-"";
+    if(!profileData.dob){
+
+        ageElement.textContent =
+            "Not added";
+
+        return;
+
+    }
+
+
+    let birth =
+        new Date(profileData.dob);
+
+    let now =
+        new Date();
+
+
+    let years =
+        now.getFullYear() -
+        birth.getFullYear();
+
+
+    let birthday =
+        new Date(
+
+            now.getFullYear(),
+
+            birth.getMonth(),
+
+            birth.getDate()
+
+        );
+
+
+    if(now < birthday){
+
+        years--;
+
+    }
+
+
+    let lastBirthday =
+        new Date(
+
+            birth.getFullYear() +
+            years,
+
+            birth.getMonth(),
+
+            birth.getDate()
+
+        );
+
+
+    let days =
+        Math.floor(
+
+            (
+                now -
+                lastBirthday
+            )
+
+            /
+
+            (
+                1000 *
+                60 *
+                60 *
+                24
+            )
+
+        );
+
+
+    ageElement.textContent =
+        years +
+        " years " +
+        days +
+        " days";
 
 }
 
+
+/* =====================================================
+   PROFILE PHOTO
+===================================================== */
 
 function uploadProfile(event){
 
-let file=event.target.files[0];
+    let file =
+        event.target.files[0];
 
-if(!file)return;
 
-if(!file.type.startsWith("image/")){
+    if(!file)return;
 
-alert("Please select an image.");
 
-return;
+    if(!file.type.startsWith("image/")){
+
+        alert(
+            "Please select an image."
+        );
+
+        return;
+
+    }
+
+
+    let reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e){
+
+            profileData.profilePhoto =
+                e.target.result;
+
+
+            saveUserProfile();
+
+            loadProfile();
+
+
+            alert(
+                "Profile photo updated!"
+            );
+
+        };
+
+
+    reader.readAsDataURL(file);
 
 }
 
 
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-profileData.profilePhoto=
-e.target.result;
-
-localStorage.setItem(
-"shirehuloProfile",
-JSON.stringify(profileData)
-);
-
-loadProfile();
-
-alert(
-"Profile photo updated!"
-);
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
+/* =====================================================
+   COVER PHOTO
+===================================================== */
 
 function uploadCover(event){
 
-let file=event.target.files[0];
+    let file =
+        event.target.files[0];
 
-if(!file)return;
 
-if(!file.type.startsWith("image/")){
+    if(!file)return;
 
-alert("Please select an image.");
 
-return;
+    if(!file.type.startsWith("image/")){
+
+        alert(
+            "Please select an image."
+        );
+
+        return;
+
+    }
+
+
+    let reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e){
+
+            profileData.coverPhoto =
+                e.target.result;
+
+
+            saveUserProfile();
+
+            loadProfile();
+
+
+            alert(
+                "Cover photo updated!"
+            );
+
+        };
+
+
+    reader.readAsDataURL(file);
 
 }
 
 
-let reader=new FileReader();
-
-reader.onload=function(e){
-
-profileData.coverPhoto=
-e.target.result;
-
-localStorage.setItem(
-"shirehuloProfile",
-JSON.stringify(profileData)
-);
-
-loadProfile();
-
-alert(
-"Cover photo updated!"
-);
-
-};
-
-reader.readAsDataURL(file);
-
-}
-
-
-/* ================= EDIT PROFILE ================= */
+/* =====================================================
+   EDIT ABOUT
+===================================================== */
 
 function editAbout(){
 
-openModal(`
+    openModal(`
 
-<h2>Edit Profile</h2>
+        <h2>Edit Profile</h2>
 
-<label>Education</label>
+        <label>Education</label>
 
-<input
-id="editEducation"
-value="${escapeAttr(profileData.education)}">
-
-
-<label>Married Status</label>
-
-<select id="editMarried">
-
-<option ${
-profileData.married==="Single"
-?"selected":""
-}>
-Single
-</option>
-
-<option ${
-profileData.married==="Married"
-?"selected":""
-}>
-Married
-</option>
-
-<option ${
-profileData.married==="Divorced"
-?"selected":""
-}>
-Divorced
-</option>
-
-<option ${
-profileData.married==="Widowed"
-?"selected":""
-}>
-Widowed
-</option>
-
-</select>
+        <input
+            id="editEducation"
+            value="${escapeHTML(profileData.education)}"
+        >
 
 
-<label>Workplace</label>
+        <label>Married Status</label>
 
-<input
-id="editWorkplace"
-value="${escapeAttr(profileData.workplace)}">
+        <select id="editMarried">
+
+            <option ${
+                profileData.married === "Single"
+                ? "selected"
+                : ""
+            }>
+                Single
+            </option>
+
+            <option ${
+                profileData.married === "Married"
+                ? "selected"
+                : ""
+            }>
+                Married
+            </option>
+
+            <option ${
+                profileData.married === "Divorced"
+                ? "selected"
+                : ""
+            }>
+                Divorced
+            </option>
+
+            <option ${
+                profileData.married === "Widowed"
+                ? "selected"
+                : ""
+            }>
+                Widowed
+            </option>
+
+        </select>
 
 
-<label>Experience</label>
+        <label>Workplace</label>
 
-<input
-id="editExperience"
-value="${escapeAttr(profileData.experience)}">
-
-
-<label>Date of Birth</label>
-
-<input
-id="editDOB"
-type="date"
-value="${escapeAttr(profileData.dob)}">
+        <input
+            id="editWorkplace"
+            value="${escapeHTML(profileData.workplace)}"
+        >
 
 
-<div class="modalButtons">
+        <label>Experience</label>
 
-<button
-class="primary"
-onclick="saveAbout()">
+        <input
+            id="editExperience"
+            value="${escapeHTML(profileData.experience)}"
+        >
 
-Save
 
-</button>
+        <label>Date of Birth</label>
 
-<button
-class="secondary"
-onclick="closeModal()">
+        <input
+            id="editDOB"
+            type="date"
+            value="${profileData.dob}"
+        >
 
-Cancel
 
-</button>
+        <div class="modalButtons">
 
-</div>
+            <button
+                class="primary"
+                onclick="saveAbout()"
+            >
+                Save
+            </button>
 
-`);
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    `);
 
 }
 
 
 function saveAbout(){
 
-profileData.education=
-document.getElementById("editEducation")
-.value.trim()||"Not added";
-
-profileData.married=
-document.getElementById("editMarried")
-.value;
-
-profileData.workplace=
-document.getElementById("editWorkplace")
-.value.trim()||"Not added";
-
-profileData.experience=
-document.getElementById("editExperience")
-.value.trim()||"Not added";
-
-profileData.dob=
-document.getElementById("editDOB")
-.value;
+    profileData.education =
+        document
+        .getElementById("editEducation")
+        .value
+        .trim();
 
 
-localStorage.setItem(
-"shirehuloProfile",
-JSON.stringify(profileData)
-);
+    profileData.married =
+        document
+        .getElementById("editMarried")
+        .value;
 
-closeModal();
 
-loadProfile();
+    profileData.workplace =
+        document
+        .getElementById("editWorkplace")
+        .value
+        .trim();
+
+
+    profileData.experience =
+        document
+        .getElementById("editExperience")
+        .value
+        .trim();
+
+
+    profileData.dob =
+        document
+        .getElementById("editDOB")
+        .value;
+
+
+    saveUserProfile();
+
+    closeModal();
+
+    loadProfile();
 
 }
 
 
-/* ================= PROFILE TABS ================= */
+/* =====================================================
+   PROFILE TABS
+===================================================== */
 
 function profileTab(type){
 
-let box=
-document.getElementById("profileContent");
+    let box =
+        document.getElementById(
+            "profileContent"
+        );
 
 
-if(type==="about"){
+    if(type === "about"){
 
-box.innerHTML=`
+        box.innerHTML = `
 
-<div class="card">
+            <div class="card">
 
-<h3>About</h3><br>
+                <h3>About</h3>
 
-<div class="aboutGrid">
+                <br>
 
-<div class="aboutItem">
-🎓 Education:
-<b>
-${escapeHTML(profileData.education)}
-</b>
-</div>
+                <div class="aboutGrid">
 
-<div class="aboutItem">
-💍 Married Status:
-<b>
-${escapeHTML(profileData.married)}
-</b>
-</div>
+                    <div class="aboutItem">
+                        🎓 Education:
+                        <b>
+                            ${escapeHTML(
+                                profileData.education
+                            )}
+                        </b>
+                    </div>
 
-<div class="aboutItem">
-💼 Workplace:
-<b>
-${escapeHTML(profileData.workplace)}
-</b>
-</div>
+                    <div class="aboutItem">
+                        💍 Married Status:
+                        <b>
+                            ${escapeHTML(
+                                profileData.married
+                            )}
+                        </b>
+                    </div>
 
-<div class="aboutItem">
-📈 Experience:
-<b>
-${escapeHTML(profileData.experience)}
-</b>
-</div>
+                    <div class="aboutItem">
+                        💼 Workplace:
+                        <b>
+                            ${escapeHTML(
+                                profileData.workplace
+                            )}
+                        </b>
+                    </div>
 
-<div class="aboutItem">
-🎂 Date of Birth:
-<b>
-${escapeHTML(profileData.dob||"Not added")}
-</b>
-</div>
+                    <div class="aboutItem">
+                        📈 Experience:
+                        <b>
+                            ${escapeHTML(
+                                profileData.experience
+                            )}
+                        </b>
+                    </div>
 
-<div class="aboutItem">
-⏳ Age:
-<b>
-${escapeHTML(
-document.getElementById("age").textContent
-)}
-</b>
-</div>
+                    <div class="aboutItem">
+                        🎂 Date of Birth:
+                        <b>
+                            ${escapeHTML(
+                                profileData.dob ||
+                                "Not added"
+                            )}
+                        </b>
+                    </div>
 
-</div>
+                    <div class="aboutItem">
+                        ⏳ Age:
+                        <b>
+                            ${
+                                document
+                                .getElementById(
+                                    "age"
+                                )
+                                .textContent
+                            }
+                        </b>
+                    </div>
 
-</div>
+                </div>
 
-`;
+            </div>
 
-}else if(type==="photo"){
+        `;
 
-box.innerHTML=`
+    }
 
-<div class="card">
+    else if(type === "photo"){
 
-<h3>Photos</h3><br>
+        box.innerHTML = `
 
-<p>
-Your uploaded photos will appear here.
-</p>
+            <div class="card">
 
-</div>
+                <h3>Photos</h3>
 
-`;
+                <br>
 
-}else if(type==="video"){
+                ${
+                    profileData.profilePhoto
 
-box.innerHTML=`
+                    ?
 
-<div class="card">
+                    `
+                    <img
+                        src="${profileData.profilePhoto}"
+                        style="
+                            max-width:200px;
+                            border-radius:10px;
+                        "
+                    >
+                    `
 
-<h3>Videos</h3><br>
+                    :
 
-<p>
-Your uploaded videos will appear here.
-</p>
+                    `
+                    <p>
+                        No uploaded photos yet.
+                    </p>
+                    `
+                }
 
-</div>
+            </div>
 
-`;
+        `;
 
-}else{
+    }
 
-box.innerHTML=`
+    else if(type === "video"){
 
-<div class="card">
+        box.innerHTML = `
 
-<h3>All</h3><br>
+            <div class="card">
 
-<p>
-Your profile content will appear here.
-</p>
+                <h3>Videos</h3>
 
-</div>
+                <br>
 
-`;
+                <p>
+                    Your uploaded videos will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+    }
+
+    else{
+
+        box.innerHTML = `
+
+            <div class="card">
+
+                <h3>All</h3>
+
+                <br>
+
+                <p>
+                    Your profile content will appear here.
+                </p>
+
+            </div>
+
+        `;
+
+    }
 
 }
 
-}
 
+/* =====================================================
+   PROFILE MENU
+===================================================== */
 
 function toggleProfileMenu(){
 
-document.getElementById("profileMenu")
-.classList.toggle("hidden");
+    document
+        .getElementById("profileMenu")
+        .classList.toggle("hidden");
 
 }
 
 
-/* ================= POSTS ================= */
+/* =====================================================
+   POSTS
+===================================================== */
 
 function previewPostPhoto(event){
 
-let file=event.target.files[0];
+    let file =
+        event.target.files[0];
 
-if(!file)return;
 
-let reader=new FileReader();
+    if(!file)return;
 
-reader.onload=function(e){
 
-let preview=
-document.getElementById("postPreview");
+    if(!file.type.startsWith("image/")){
 
-preview.src=e.target.result;
+        alert(
+            "Please select an image."
+        );
 
-preview.classList.remove("hidden");
+        return;
 
-};
+    }
 
-reader.readAsDataURL(file);
+
+    let reader =
+        new FileReader();
+
+
+    reader.onload =
+        function(e){
+
+            let preview =
+                document.getElementById(
+                    "postPreview"
+                );
+
+
+            preview.src =
+                e.target.result;
+
+
+            preview.classList.remove(
+                "hidden"
+            );
+
+        };
+
+
+    reader.readAsDataURL(file);
 
 }
 
 
 function createPost(){
 
-let text=
-document.getElementById("postText")
-.value.trim();
-
-let file=
-document.getElementById("postPhoto")
-.files[0];
+    let text =
+        document
+        .getElementById("postText")
+        .value
+        .trim();
 
 
-if(!text&&!file){
-
-alert(
-"Write something or select a photo."
-);
-
-return;
-
-}
+    let file =
+        document
+        .getElementById("postPhoto")
+        .files[0];
 
 
-if(file){
+    if(!text && !file){
 
-let reader=new FileReader();
+        alert(
+            "Write something or select a photo."
+        );
 
-reader.onload=function(e){
+        return;
 
-savePost(
-text,
-e.target.result
-);
+    }
 
-};
 
-reader.readAsDataURL(file);
+    if(file){
 
-}else{
+        let reader =
+            new FileReader();
 
-savePost(text,"");
 
-}
+        reader.onload =
+            function(e){
+
+                savePost(
+                    text,
+                    e.target.result
+                );
+
+            };
+
+
+        reader.readAsDataURL(file);
+
+    }
+
+    else{
+
+        savePost(
+            text,
+            ""
+        );
+
+    }
 
 }
 
 
 function savePost(text,image){
 
-let post={
+    let post = {
 
-id:Date.now(),
-name:profileData.name,
-text:text,
-image:image,
-wow:0,
-haha:0,
-comments:[],
-time:new Date().toLocaleString()
+        id:Date.now(),
 
-};
+        userId:
+            currentUser
+            ? currentUser.id
+            : null,
+
+        name:
+            profileData.name,
+
+        text:text,
+
+        image:image,
+
+        wow:0,
+
+        haha:0,
+
+        comments:[],
+
+        time:
+            new Date()
+            .toLocaleString()
+
+    };
 
 
-posts.unshift(post);
+    posts.unshift(post);
 
-localStorage.setItem(
-"shirehuloPosts",
-JSON.stringify(posts)
-);
 
-document.getElementById("postText")
-.value="";
+    localStorage.setItem(
+        "shirehuloPosts",
+        JSON.stringify(posts)
+    );
 
-document.getElementById("postPhoto")
-.value="";
 
-document.getElementById("postPreview")
-.classList.add("hidden");
+    document
+        .getElementById("postText")
+        .value = "";
 
-renderPosts();
+
+    document
+        .getElementById("postPhoto")
+        .value = "";
+
+
+    document
+        .getElementById("postPreview")
+        .classList.add(
+            "hidden"
+        );
+
+
+    renderPosts();
 
 }
 
 
 function renderPosts(){
 
-let container=
-document.getElementById("posts");
-
-container.innerHTML="";
-
-
-posts.forEach(post=>{
-
-let div=document.createElement("div");
-
-div.className="card post";
+    let container =
+        document.getElementById(
+            "posts"
+        );
 
 
-let commentsHTML=
-(post.comments||[])
-.map(c=>`
-
-<div style="
-background:#f5f6f7;
-padding:8px;
-border-radius:7px;
-margin-top:5px">
-
-${escapeHTML(c)}
-
-</div>
-
-`).join("");
+    container.innerHTML = "";
 
 
-div.innerHTML=`
+    posts.forEach(
+        post => {
 
-<h3>
-${escapeHTML(post.name)}
-</h3>
-
-<small>
-${escapeHTML(post.time)}
-</small>
-
-${post.text?
-
-`
-<p style="margin-top:10px">
-${escapeHTML(post.text)}
-</p>
-`
-
-:""}
+            let div =
+                document.createElement(
+                    "div"
+                );
 
 
-${post.image?
-
-`
-<img
-src="${post.image}"
-alt="Post image">
-`
-
-:""}
+            div.className =
+                "card post";
 
 
-<div class="actions">
-
-<button
-class="secondary"
-onclick="reactPost(${post.id},'wow')">
-
-😮 Wow
-<span>${post.wow||0}</span>
-
-</button>
+            let commentsHTML = "";
 
 
-<button
-class="secondary"
-onclick="reactPost(${post.id},'haha')">
+            if(
+                post.comments &&
+                post.comments.length
+            ){
 
-😂 Haha
-<span>${post.haha||0}</span>
+                commentsHTML =
+                    post.comments.map(
+                        comment =>
+                            `
+                            <div class="commentItem">
+                                ${escapeHTML(comment)}
+                            </div>
+                            `
+                    ).join("");
 
-</button>
-
-
-<button
-class="secondary"
-onclick="commentPost(${post.id})">
-
-💬 Comment
-
-</button>
-
-
-<button
-class="secondary"
-onclick="sharePost(${post.id})">
-
-↗ Share
-
-</button>
+            }
 
 
-<button
-class="secondary"
-onclick="editPost(${post.id})">
+            div.innerHTML = `
 
-✏️ Edit
+                <h3>
+                    ${escapeHTML(
+                        post.name
+                    )}
+                </h3>
 
-</button>
-
-</div>
-
-
-<div
-style="margin-top:10px">
-
-${commentsHTML}
-
-</div>
-
-`;
+                <small>
+                    ${escapeHTML(
+                        post.time
+                    )}
+                </small>
 
 
-container.appendChild(div);
+                ${
+                    post.text
+                    ?
+                    `
+                    <p style="margin-top:10px">
+                        ${escapeHTML(
+                            post.text
+                        )}
+                    </p>
+                    `
+                    :
+                    ""
+                }
 
-});
+
+                ${
+                    post.image
+                    ?
+                    `
+                    <img
+                        src="${post.image}"
+                    >
+                    `
+                    :
+                    ""
+                }
+
+
+                <div class="actions">
+
+                    <button
+                        class="secondary"
+                        onclick="reactPost(${post.id},'wow')"
+                    >
+                        😮 Wow
+                        <span>
+                            ${post.wow}
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="secondary"
+                        onclick="reactPost(${post.id},'haha')"
+                    >
+                        😂 Haha
+                        <span>
+                            ${post.haha}
+                        </span>
+                    </button>
+
+
+                    <button
+                        class="secondary"
+                        onclick="commentPost(${post.id})"
+                    >
+                        💬 Comment
+                    </button>
+
+
+                    <button
+                        class="secondary"
+                        onclick="sharePost(${post.id})"
+                    >
+                        ↗ Share
+                    </button>
+
+
+                    ${
+                        post.userId ===
+                        (
+                            currentUser
+                            ?
+                            currentUser.id
+                            :
+                            null
+                        )
+
+                        ?
+
+                        `
+                        <button
+                            class="secondary"
+                            onclick="editPost(${post.id})"
+                        >
+                            ✏️ Edit
+                        </button>
+                        `
+
+                        :
+
+                        ""
+                    }
+
+                </div>
+
+
+                <div
+                    id="comments-${post.id}"
+                    class="commentBox"
+                >
+                    ${commentsHTML}
+                </div>
+
+            `;
+
+
+            container.appendChild(div);
+
+        }
+    );
 
 }
 
+
+/* =====================================================
+   REACTION
+===================================================== */
 
 function reactPost(id,type){
 
-let post=
-posts.find(p=>p.id===id);
-
-if(!post)return;
-
-
-if(type==="wow")
-post.wow=(post.wow||0)+1;
-
-if(type==="haha")
-post.haha=(post.haha||0)+1;
+    let post =
+        posts.find(
+            p => p.id === id
+        );
 
 
-localStorage.setItem(
-"shirehuloPosts",
-JSON.stringify(posts)
-);
+    if(!post)return;
 
-renderPosts();
+
+    if(type === "wow"){
+
+        post.wow++;
+
+    }
+
+
+    if(type === "haha"){
+
+        post.haha++;
+
+    }
+
+
+    localStorage.setItem(
+        "shirehuloPosts",
+        JSON.stringify(posts)
+    );
+
+
+    renderPosts();
 
 }
 
+
+/* =====================================================
+   COMMENT
+===================================================== */
 
 function commentPost(id){
 
-let text=
-prompt("Write your comment:");
-
-if(!text)return;
-
-
-let post=
-posts.find(p=>p.id===id);
-
-if(!post)return;
-
-if(!Array.isArray(post.comments))
-post.comments=[];
-
-post.comments.push(text);
+    let text =
+        prompt(
+            "Write your comment:"
+        );
 
 
-localStorage.setItem(
-"shirehuloPosts",
-JSON.stringify(posts)
-);
+    if(!text)return;
 
-renderPosts();
+
+    let post =
+        posts.find(
+            p => p.id === id
+        );
+
+
+    if(!post)return;
+
+
+    if(!post.comments){
+
+        post.comments = [];
+
+    }
+
+
+    post.comments.push(
+        text.trim()
+    );
+
+
+    localStorage.setItem(
+        "shirehuloPosts",
+        JSON.stringify(posts)
+    );
+
+
+    renderPosts();
 
 }
 
+
+/* =====================================================
+   SHARE
+===================================================== */
 
 function sharePost(id){
 
-let post=
-posts.find(p=>p.id===id);
-
-if(!post)return;
-
-
-let text=
-"Shared from Shirehulo Adam: "+
-post.text;
+    let post =
+        posts.find(
+            p => p.id === id
+        );
 
 
-if(navigator.clipboard){
+    if(!post)return;
 
-navigator.clipboard
-.writeText(text)
-.catch(()=>{});
+
+    let text =
+        "Shared from Shirehulo Adam: " +
+        post.text;
+
+
+    if(
+        navigator.clipboard
+    ){
+
+        navigator.clipboard
+            .writeText(text);
+
+    }
+
+
+    alert(
+        "Post shared/copied."
+    );
 
 }
 
 
-alert("Post shared.");
-
-}
-
+/* =====================================================
+   EDIT POST
+===================================================== */
 
 function editPost(id){
 
-let post=
-posts.find(p=>p.id===id);
-
-if(!post)return;
-
-
-let newText=
-prompt(
-"Edit your post:",
-post.text
-);
+    let post =
+        posts.find(
+            p => p.id === id
+        );
 
 
-if(newText===null)return;
+    if(!post)return;
 
 
-post.text=newText;
+    let newText =
+        prompt(
+            "Edit your post:",
+            post.text
+        );
 
 
-localStorage.setItem(
-"shirehuloPosts",
-JSON.stringify(posts)
-);
+    if(newText === null)return;
 
-renderPosts();
+
+    post.text =
+        newText.trim();
+
+
+    localStorage.setItem(
+        "shirehuloPosts",
+        JSON.stringify(posts)
+    );
+
+
+    renderPosts();
 
 }
 
 
-/* ================= MESSAGES ================= */
+/* =====================================================
+   MESSAGES
+===================================================== */
 
 function openChat(name){
 
-currentChat=name;
-
-document.getElementById("chatTitle")
-.textContent=name;
+    currentChat =
+        name;
 
 
-document.getElementById("messages")
-.innerHTML=`
+    document
+        .getElementById(
+            "chatTitle"
+        )
+        .textContent =
+            name;
 
-<div class="msg">
 
-Hello! How are you?
+    let messages =
+        document.getElementById(
+            "messages"
+        );
 
-<span class="seenDot"></span>
 
-</div>
+    messages.innerHTML = `
 
-`;
+        <div class="msg">
+            Hello! How are you?
+            <span class="seenDot"></span>
+        </div>
+
+    `;
 
 }
 
 
 function sendMessage(){
 
-let input=
-document.getElementById("messageInput");
+    let input =
+        document.getElementById(
+            "messageInput"
+        );
 
-let text=input.value.trim();
 
-if(!text)return;
+    let text =
+        input.value.trim();
 
-if(!currentChat){
 
-alert("Select a chat first.");
+    if(!text)return;
 
-return;
+
+    if(!currentChat){
+
+        alert(
+            "Please select a chat first."
+        );
+
+        return;
+
+    }
+
+
+    let messages =
+        document.getElementById(
+            "messages"
+        );
+
+
+    messages.innerHTML += `
+
+        <div class="msg me">
+
+            ${escapeHTML(text)}
+
+            <span class="seenDot"></span>
+
+        </div>
+
+    `;
+
+
+    input.value = "";
+
+
+    messages.scrollTop =
+        messages.scrollHeight;
+
+
+    if(autoReply){
+
+        setTimeout(
+
+            () => {
+
+                let answer =
+                    getAutoReply(
+                        text
+                    );
+
+
+                messages.innerHTML += `
+
+                    <div class="msg">
+
+                        ${escapeHTML(
+                            answer
+                        )}
+
+                        <span class="seenDot"></span>
+
+                    </div>
+
+                `;
+
+
+                messages.scrollTop =
+                    messages.scrollHeight;
+
+            },
+
+            700
+
+        );
+
+    }
 
 }
 
 
-let messages=
-document.getElementById("messages");
+function archiveChat(){
+
+    if(!currentChat){
+
+        alert(
+            "Select a chat first."
+        );
+
+        return;
+
+    }
 
 
-messages.innerHTML+=`
-
-<div class="msg me">
-
-${escapeHTML(text)}
-
-<span class="seenDot"></span>
-
-</div>
-
-`;
-
-
-input.value="";
-
-messages.scrollTop=
-messages.scrollHeight;
-
-
-if(autoReply){
-
-setTimeout(()=>{
-
-messages.innerHTML+=`
-
-<div class="msg">
-
-${escapeHTML(
-getAutoReply(text)
-)}
-
-<span class="seenDot"></span>
-
-</div>
-
-`;
-
-messages.scrollTop=
-messages.scrollHeight;
-
-},700);
+    alert(
+        currentChat +
+        " chat archived."
+    );
 
 }
+
+
+function restrictChat(){
+
+    if(!currentChat){
+
+        alert(
+            "Select a chat first."
+        );
+
+        return;
+
+    }
+
+
+    alert(
+        currentChat +
+        " chat restricted."
+    );
 
 }
 
 
 function deleteChat(){
 
-document.getElementById("messages")
-.innerHTML="";
+    document
+        .getElementById(
+            "messages"
+        )
+        .innerHTML = "";
 
-alert("Chat deleted.");
+
+    alert(
+        "Chat deleted."
+    );
 
 }
 
 
 function toggleAutoReply(){
 
-autoReply=!autoReply;
+    autoReply =
+        !autoReply;
 
-alert(
-"Auto Reply is now "+
-(autoReply?"ON":"OFF")
-);
+
+    alert(
+        "Auto Reply is now " +
+        (
+            autoReply
+            ? "ON"
+            : "OFF"
+        )
+    );
 
 }
 
+
+/* =====================================================
+   AUTO REPLIES
+===================================================== */
 
 function getAutoReply(text){
 
-let t=text.toLowerCase();
+    let t =
+        text.toLowerCase();
 
 
-let replies={
+    let replies = {
 
-"hello":
-"Hello! 👋 How can I help you?",
+        "hello":
+            "Hello! 👋 How can I help you?",
 
-"hi":
-"Hi! Nice to hear from you.",
+        "hi":
+            "Hi! Nice to hear from you.",
 
-"how are you":
-"I'm doing great! How are you?",
+        "how are you":
+            "I'm doing great! How are you?",
 
-"good morning":
-"Good morning! ☀️",
+        "good morning":
+            "Good morning! ☀️",
 
-"good night":
-"Good night! 🌙",
+        "good night":
+            "Good night! 🌙",
 
-"thanks":
-"You're welcome! 😊",
+        "thanks":
+            "You're welcome! 😊",
 
-"thank you":
-"You're most welcome!",
+        "thank you":
+            "You're most welcome!",
 
-"bye":
-"Bye! Take care.",
+        "bye":
+            "Bye! Take care.",
 
-"where are you":
-"I'm here on Shirehulo Adam.",
+        "where are you":
+            "I'm here on Shirehulo Adam.",
 
-"what are you doing":
-"I'm chatting with you.",
+        "what are you doing":
+            "I'm chatting with you.",
 
-"who are you":
-"I'm your Shirehulo Adam assistant.",
+        "who are you":
+            "I'm your Shirehulo Adam assistant.",
 
-"help":
-"Sure! Tell me what you need.",
+        "help":
+            "Sure! Tell me what you need.",
 
-"what is your name":
-"You can call me Shirehulo Assistant.",
+        "what is your name":
+            "You can call me Shirehulo Assistant.",
 
-"how old are you":
-"I don't have a human age.",
+        "how old are you":
+            "I don't have a human age.",
 
-"are you online":
-"Yes, I'm online.",
+        "are you online":
+            "Yes, I'm online.",
 
-"can you help me":
-"Of course!",
+        "can you help me":
+            "Of course!",
 
-"what is shirehulo adam":
-"It's your social community.",
+        "what is shirehulo adam":
+            "It's your social community.",
 
-"nice":
-"Thank you! 😊",
+        "can i call you":
+            "You can message me here.",
 
-"wow":
-"Wow indeed! 😮",
+        "nice":
+            "Thank you! 😊",
 
-"haha":
-"😂 Glad you liked it!",
+        "wow":
+            "Wow indeed! 😮",
 
-"good":
-"That's great!",
+        "haha":
+            "😂 Glad you liked it!",
 
-"okay":
-"Okay! 👍",
+        "where do you live":
+            "I'm available online.",
 
-"yes":
-"Great!",
+        "are you busy":
+            "No, I'm available.",
 
-"no":
-"Okay, no problem.",
+        "see you":
+            "See you later!",
 
-"friend":
-"Friends are important! 👥",
+        "welcome":
+            "Thank you! Welcome too.",
 
-"message":
-"Yes, you're messaging me now.",
+        "good":
+            "That's great!",
 
-"photo":
-"You can upload photos to posts.",
+        "okay":
+            "Okay! 👍",
 
-"post":
-"You can create a post from Home.",
+        "yes":
+            "Great!",
 
-"privacy":
-"You can manage privacy from Privacy & Security.",
+        "no":
+            "Okay, no problem.",
 
-"password":
-"You can change your password from Privacy & Security."
+        "what's up":
+            "Not much! What's up with you?",
 
-};
+        "friend":
+            "Friends are important! 👥",
+
+        "message":
+            "Yes, you're messaging me now.",
+
+        "photo":
+            "You can upload photos to posts.",
+
+        "post":
+            "You can create a post from Home.",
+
+        "privacy":
+            "You can manage privacy from Settings.",
+
+        "password":
+            "You can change your password from Privacy & Security."
+
+    };
 
 
-for(let key in replies){
+    for(
+        let key in replies
+    ){
 
-if(t.includes(key))
-return replies[key];
+        if(
+            t.includes(key)
+        ){
+
+            return replies[key];
+
+        }
+
+    }
+
+
+    return (
+        "Thanks for your message! " +
+        "I'll get back to you soon. 😊"
+    );
 
 }
 
 
-return "Thanks for your message! I'll get back to you soon. 😊";
-
-}
-
-
-/* ================= FRIEND REQUEST ================= */
+/* =====================================================
+   FRIEND REQUESTS
+===================================================== */
 
 function acceptRequest(btn){
 
-btn.parentElement.innerHTML=
-"<b>Friend request accepted ✔️</b>";
+    btn.parentElement.innerHTML =
+        "<b>Friend request accepted ✔️</b>";
 
 }
 
 
 function rejectRequest(btn){
 
-btn.parentElement.innerHTML=
-"<b>Friend request rejected ❌</b>";
+    btn.parentElement.innerHTML =
+        "<b>Friend request rejected ❌</b>";
 
 }
 
 
 function blockUser(btn){
 
-btn.parentElement.innerHTML=
-"<b>User blocked 🚫</b>";
+    btn.parentElement.innerHTML =
+        "<b>User blocked 🚫</b>";
+
+}
+
+
+/* =====================================================
+   SETTINGS
+===================================================== */
+
+function openSettings(){
+
+    openModal(`
+
+        <h2>
+            ⚙️ Settings
+        </h2>
+
+
+        <div class="settingsList">
+
+
+            <div
+                class="settingRow"
+                onclick="openPrivacySecurity()"
+            >
+
+                <div class="settingIcon">
+                    🔐
+                </div>
+
+                <div class="settingInfo">
+
+                    <b>
+                        Privacy & Security
+                    </b>
+
+                    <span>
+                        Account, password,
+                        contact information
+                        and security
+                    </span>
+
+                </div>
+
+                <div class="settingArrow">
+                    ›
+                </div>
+
+            </div>
+
+
+            <div
+                class="settingRow"
+                onclick="alert('Notification settings coming soon.')"
+            >
+
+                <div class="settingIcon">
+                    🔔
+                </div>
+
+                <div class="settingInfo">
+
+                    <b>
+                        Notifications
+                    </b>
+
+                    <span>
+                        Manage your notifications
+                    </span>
+
+                </div>
+
+                <div class="settingArrow">
+                    ›
+                </div>
+
+            </div>
+
+
+            <div
+                class="settingRow"
+                onclick="alert('Language settings coming soon.')"
+            >
+
+                <div class="settingIcon">
+                    🌐
+                </div>
+
+                <div class="settingInfo">
+
+                    <b>
+                        Language
+                    </b>
+
+                    <span>
+                        Choose your preferred language
+                    </span>
+
+                </div>
+
+                <div class="settingArrow">
+                    ›
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="modalButtons">
+
+            <button
+                class="secondary"
+                onclick="closeModal()"
+            >
+                Close
+            </button>
+
+        </div>
+
+    `);
 
 }
 
@@ -2231,860 +3857,1481 @@ btn.parentElement.innerHTML=
    PRIVACY & SECURITY
 ===================================================== */
 
-function openPrivacy(){
+function openPrivacySecurity(){
 
-let user=getUser();
+    let user =
+        currentUser ||
+        getCurrentUser();
 
-let twoFA=
-!!user.twoFactorEnabled;
 
+    let security =
+        getSecurity();
 
-let email=
-user.email?
-maskEmail(user.email):
-"Not added";
 
+    openModal(`
 
-let phone=
-user.phone?
-maskPhone(user.phone):
-"Not added";
+        <div class="settingsHeader">
 
+            <button
+                class="backButton"
+                onclick="openSettings()"
+            >
+                ‹
+            </button>
 
-openModal(`
+            <div>
 
-<h2>🔐 Privacy & Security</h2>
+                <h2>
+                    🔐 Privacy & Security
+                </h2>
 
+                <p>
+                    Manage your account
+                    and security
+                </p>
 
-<!-- ACCOUNT INFORMATION -->
+            </div>
 
-<div class="securitySection">
+        </div>
 
-<h3>Account Information</h3>
 
+        <div class="settingsList">
 
-<div class="securityRow">
 
-<div>
+            <!-- EMAIL -->
 
-<div class="securityTitle">
-📧 Gmail / Email
-</div>
+            <div
+                class="settingRow"
+                onclick="changeEmail()"
+            >
 
-<div class="securitySub">
-${escapeHTML(email)}
-</div>
+                <div class="settingIcon">
+                    📧
+                </div>
 
-</div>
+                <div class="settingInfo">
 
-<button
-class="smallBtn"
-onclick="changeContact('email')">
+                    <b>
+                        Email Address
+                    </b>
 
-Change
+                    <span>
+                        ${
+                            escapeHTML(
+                                user &&
+                                user.email
+                                ?
+                                user.email
+                                :
+                                "Not added"
+                            )
+                        }
+                    </span>
 
-</button>
+                </div>
 
-</div>
+                <div class="settingArrow">
+                    ›
+                </div>
 
+            </div>
 
-<div class="securityRow">
 
-<div>
+            <!-- PHONE -->
 
-<div class="securityTitle">
-📱 Phone Number
-</div>
+            <div
+                class="settingRow"
+                onclick="changePhone()"
+            >
 
-<div class="securitySub">
-${escapeHTML(phone)}
-</div>
+                <div class="settingIcon">
+                    📱
+                </div>
 
-</div>
+                <div class="settingInfo">
 
-<button
-class="smallBtn"
-onclick="changeContact('phone')">
+                    <b>
+                        Phone Number
+                    </b>
 
-Change
+                    <span>
+                        ${
+                            escapeHTML(
+                                user &&
+                                user.phone
+                                ?
+                                user.phone
+                                :
+                                "Not added"
+                            )
+                        }
+                    </span>
 
-</button>
+                </div>
 
-</div>
+                <div class="settingArrow">
+                    ›
+                </div>
 
+            </div>
 
-<div class="securityRow">
 
-<div>
+            <!-- PASSWORD -->
 
-<div class="securityTitle">
-🔑 Password
-</div>
+            <div
+                class="settingRow"
+                onclick="changePassword()"
+            >
 
-<div class="securitySub masked">
-••••••••••
-</div>
+                <div class="settingIcon">
+                    🔑
+                </div>
 
-</div>
+                <div class="settingInfo">
 
-<button
-class="smallBtn"
-onclick="changePassword()">
+                    <b>
+                        Password
+                    </b>
 
-Change
+                    <span>
+                        Change your account password
+                    </span>
 
-</button>
+                </div>
 
-</div>
+                <div class="settingArrow">
+                    ›
+                </div>
 
-</div>
+            </div>
 
 
-<!-- SECURITY -->
+            <!-- 2FA -->
 
-<div class="securitySection">
+            <div
+                class="settingRow"
+                onclick="openTwoFactor()"
+            >
 
-<h3>🛡️ Security</h3>
+                <div class="settingIcon">
+                    🛡️
+                </div>
 
+                <div class="settingInfo">
 
-<div class="securityRow">
+                    <b>
+                        Two-Factor Authentication
+                    </b>
 
-<div>
+                    <span>
+                        ${
+                            security.twoFactor
+                            ?
+                            "Enabled • Extra protection"
+                            :
+                            "Disabled • Add extra protection"
+                        }
+                    </span>
 
-<div class="securityTitle">
-Two-Factor Authentication
-</div>
+                </div>
 
-<div class="securitySub">
+                <div class="settingStatus">
 
-Extra verification when you log in.
+                    ${
+                        security.twoFactor
+                        ?
+                        "ON"
+                        :
+                        "OFF"
+                    }
 
-</div>
+                </div>
 
-</div>
+                <div class="settingArrow">
+                    ›
+                </div>
 
+            </div>
 
-<div class="${
-twoFA?
-"statusOn":
-"statusOff"
-}">
 
-${twoFA?"ON":"OFF"}
+            <!-- PROFILE PRIVACY -->
 
-</div>
+            <div
+                class="settingRow"
+                onclick="profilePrivacy()"
+            >
 
-</div>
+                <div class="settingIcon">
+                    👁️
+                </div>
 
+                <div class="settingInfo">
 
-<button
-class="${
-twoFA?
-"danger":
-"primary"
-}"
-style="margin-top:10px"
-onclick="${
-twoFA?
-"disableTwoFactor()":
-"enableTwoFactor()"
-}">
+                    <b>
+                        Who can see my profile?
+                    </b>
 
-${
-twoFA?
-"Disable Two-Factor Authentication":
-"Enable Two-Factor Authentication"
-}
+                    <span>
+                        ${
+                            security.profilePrivacy
+                        }
+                    </span>
 
-</button>
+                </div>
 
+                <div class="settingArrow">
+                    ›
+                </div>
 
-<div class="warning"
-style="margin-top:12px">
+            </div>
 
-This GitHub Pages version is a frontend demo.
-Real SMS, Gmail or Authenticator verification
-requires a secure backend.
 
-</div>
+            <!-- REACTION PRIVACY -->
 
-</div>
+            <div
+                class="settingRow"
+                onclick="reactionPrivacy()"
+            >
 
+                <div class="settingIcon">
+                    👍
+                </div>
 
-<!-- PRIVACY -->
+                <div class="settingInfo">
 
-<div class="securitySection">
+                    <b>
+                        Who can react to my posts?
+                    </b>
 
-<h3>👁 Privacy</h3>
+                    <span>
+                        ${
+                            security.reactionPrivacy
+                        }
+                    </span>
 
+                </div>
 
-<label>
-Who can see my profile?
-</label>
+                <div class="settingArrow">
+                    ›
+                </div>
 
-<select id="privacyProfile">
+            </div>
 
-<option>Everyone</option>
-<option>Friends</option>
-<option>Only Me</option>
 
-</select>
+            <!-- MESSAGE PRIVACY -->
 
+            <div
+                class="settingRow"
+                onclick="messagePrivacy()"
+            >
 
-<label>
-Who can react to my posts?
-</label>
+                <div class="settingIcon">
+                    💬
+                </div>
 
-<select id="privacyReact">
+                <div class="settingInfo">
 
-<option>Everyone</option>
-<option>Friends</option>
-<option>Only Me</option>
+                    <b>
+                        Who can message me?
+                    </b>
 
-</select>
+                    <span>
+                        ${
+                            security.messagePrivacy
+                        }
+                    </span>
 
+                </div>
 
-<label>
-Who can message me?
-</label>
+                <div class="settingArrow">
+                    ›
+                </div>
 
-<select id="privacyMessage">
+            </div>
 
-<option>Everyone</option>
-<option>Friends</option>
-<option>No one</option>
 
-</select>
+        </div>
 
 
-<button
-class="primary"
-style="margin-top:12px"
-onclick="savePrivacy()">
+        <div class="modalButtons">
 
-Save Privacy
+            <button
+                class="secondary"
+                onclick="openSettings()"
+            >
+                Back
+            </button>
 
-</button>
+        </div>
 
-</div>
-
-
-<div class="modalButtons">
-
-<button
-class="secondary"
-onclick="closeModal()">
-
-Done
-
-</button>
-
-</div>
-
-`);
-
-}
-
-
-function maskEmail(email){
-
-if(!email)return"";
-
-let parts=email.split("@");
-
-if(parts.length!==2)
-return"••••••";
-
-let name=parts[0];
-
-let shown=
-name.length>2?
-name.slice(0,2):
-name.slice(0,1);
-
-return shown+
-"••••@"+
-parts[1];
-
-}
-
-
-function maskPhone(phone){
-
-if(!phone)return"";
-
-let value=String(phone);
-
-if(value.length<=4)
-return"••••";
-
-return"••••••"+
-value.slice(-4);
-
-}
-
-
-/* ================= CHANGE EMAIL / PHONE ================= */
-
-function changeContact(type){
-
-let user=getUser();
-
-
-if(type==="email"){
-
-let value=
-prompt(
-"Enter your new email:",
-user.email||""
-);
-
-if(value===null)return;
-
-value=value.trim();
-
-
-if(
-!/^[^\s@]+@[^\s@]+\.[^\s@]+$/
-.test(value)
-){
-
-alert(
-"Please enter a valid email address."
-);
-
-return;
+    `);
 
 }
 
 
-user.email=value;
+/* =====================================================
+   CHANGE EMAIL
+===================================================== */
 
-}else{
+function changeEmail(){
 
-
-let value=
-prompt(
-"Enter your new phone number:",
-user.phone||""
-);
-
-if(value===null)return;
-
-value=value.trim();
+    let user =
+        currentUser;
 
 
-if(!value){
+    openModal(`
 
-alert(
-"Phone number cannot be empty."
-);
+        <h2>
+            📧 Change Email
+        </h2>
 
-return;
+
+        <label>
+            Current Email
+        </label>
+
+        <input
+            value="${
+                escapeHTML(
+                    user.email
+                )
+            }"
+            disabled
+        >
+
+
+        <label>
+            New Email
+        </label>
+
+        <input
+            id="newEmail"
+            type="email"
+            placeholder="Enter new Gmail / Email"
+        >
+
+
+        <div class="modalButtons">
+
+            <button
+                class="primary"
+                onclick="saveNewEmail()"
+            >
+                Save
+            </button>
+
+            <button
+                class="secondary"
+                onclick="openPrivacySecurity()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    `);
 
 }
 
 
-user.phone=value;
+function saveNewEmail(){
+
+    let newEmail =
+        document
+        .getElementById("newEmail")
+        .value
+        .trim();
+
+
+    if(!newEmail){
+
+        alert(
+            "Please enter a new email."
+        );
+
+        return;
+
+    }
+
+
+    if(!newEmail.includes("@")){
+
+        alert(
+            "Please enter a valid email."
+        );
+
+        return;
+
+    }
+
+
+    let users =
+        getUsers();
+
+
+    let duplicate =
+        users.find(
+
+            u =>
+                u.id !== currentUser.id
+                &&
+                u.email.toLowerCase() ===
+                newEmail.toLowerCase()
+
+        );
+
+
+    if(duplicate){
+
+        alert(
+            "This email is already used."
+        );
+
+        return;
+
+    }
+
+
+    currentUser.email =
+        newEmail;
+
+
+    users =
+        users.map(
+
+            u =>
+                u.id === currentUser.id
+                ?
+                currentUser
+                :
+                u
+
+        );
+
+
+    saveUsers(users);
+
+    setCurrentUser(
+        currentUser
+    );
+
+
+    alert(
+        "Email updated successfully."
+    );
+
+
+    openPrivacySecurity();
 
 }
 
 
-saveUser(user);
+/* =====================================================
+   CHANGE PHONE
+===================================================== */
+
+function changePhone(){
+
+    openModal(`
+
+        <h2>
+            📱 Change Phone Number
+        </h2>
 
 
-alert(
-type==="email"?
-"Email updated successfully.":
-"Phone number updated successfully."
-);
+        <label>
+            Current Phone
+        </label>
+
+        <input
+            value="${
+                escapeHTML(
+                    currentUser.phone ||
+                    "Not added"
+                )
+            }"
+            disabled
+        >
 
 
-openPrivacy();
+        <label>
+            New Phone Number
+        </label>
+
+        <input
+            id="newPhone"
+            type="tel"
+            placeholder="Enter phone number"
+        >
+
+
+        <div class="modalButtons">
+
+            <button
+                class="primary"
+                onclick="saveNewPhone()"
+            >
+                Save
+            </button>
+
+            <button
+                class="secondary"
+                onclick="openPrivacySecurity()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    `);
 
 }
 
 
-/* ================= CHANGE PASSWORD ================= */
+function saveNewPhone(){
+
+    let newPhone =
+        document
+        .getElementById("newPhone")
+        .value
+        .trim();
+
+
+    if(!newPhone){
+
+        alert(
+            "Please enter a phone number."
+        );
+
+        return;
+
+    }
+
+
+    currentUser.phone =
+        newPhone;
+
+
+    let users =
+        getUsers();
+
+
+    users =
+        users.map(
+
+            u =>
+                u.id === currentUser.id
+                ?
+                currentUser
+                :
+                u
+
+        );
+
+
+    saveUsers(users);
+
+    setCurrentUser(
+        currentUser
+    );
+
+
+    alert(
+        "Phone number updated successfully."
+    );
+
+
+    openPrivacySecurity();
+
+}
+
+
+/* =====================================================
+   CHANGE PASSWORD
+===================================================== */
 
 function changePassword(){
 
-openModal(`
+    openModal(`
 
-<h2>🔑 Change Password</h2>
-
-
-<input
-id="oldPassword"
-type="password"
-placeholder="Current password">
+        <h2>
+            🔑 Change Password
+        </h2>
 
 
-<input
-id="newPassword"
-type="password"
-placeholder="New password">
+        <label>
+            Current Password
+        </label>
+
+        <input
+            id="currentPassword"
+            type="password"
+            placeholder="Current password"
+        >
 
 
-<input
-id="confirmPassword"
-type="password"
-placeholder="Confirm new password">
+        <label>
+            New Password
+        </label>
+
+        <input
+            id="newPassword"
+            type="password"
+            placeholder="New password"
+        >
 
 
-<div class="modalButtons">
+        <label>
+            Confirm New Password
+        </label>
 
-<button
-class="primary"
-onclick="saveNewPassword()">
-
-Update Password
-
-</button>
+        <input
+            id="confirmPassword"
+            type="password"
+            placeholder="Confirm new password"
+        >
 
 
-<button
-class="secondary"
-onclick="openPrivacy()">
+        <div class="modalButtons">
 
-Cancel
+            <button
+                class="primary"
+                onclick="saveNewPassword()"
+            >
+                Change Password
+            </button>
 
-</button>
+            <button
+                class="secondary"
+                onclick="openPrivacySecurity()"
+            >
+                Cancel
+            </button>
 
-</div>
+        </div>
 
-`);
+    `);
 
 }
 
 
 function saveNewPassword(){
 
-let user=getUser();
+    let current =
+        document
+        .getElementById(
+            "currentPassword"
+        )
+        .value;
 
 
-let oldPass=
-document.getElementById("oldPassword")
-.value;
+    let newPass =
+        document
+        .getElementById(
+            "newPassword"
+        )
+        .value;
 
 
-let newPass=
-document.getElementById("newPassword")
-.value;
+    let confirmPass =
+        document
+        .getElementById(
+            "confirmPassword"
+        )
+        .value;
 
 
-let confirm=
-document.getElementById("confirmPassword")
-.value;
+    if(
+        current !==
+        currentUser.pass
+    ){
+
+        alert(
+            "Current password is incorrect."
+        );
+
+        return;
+
+    }
 
 
-if(oldPass!==user.pass){
+    if(
+        newPass.length < 6
+    ){
 
-alert(
-"Current password is incorrect."
-);
+        alert(
+            "New password must be at least 6 characters."
+        );
 
-return;
+        return;
 
-}
-
-
-if(newPass.length<6){
-
-alert(
-"New password must be at least 6 characters."
-);
-
-return;
-
-}
+    }
 
 
-if(newPass!==confirm){
+    if(
+        newPass !==
+        confirmPass
+    ){
 
-alert(
-"New passwords do not match."
-);
+        alert(
+            "New passwords do not match."
+        );
 
-return;
+        return;
 
-}
-
-
-user.pass=newPass;
-
-saveUser(user);
+    }
 
 
-alert(
-"Password updated successfully."
-);
+    currentUser.pass =
+        newPass;
 
 
-openPrivacy();
+    let users =
+        getUsers();
+
+
+    users =
+        users.map(
+
+            u =>
+                u.id === currentUser.id
+                ?
+                currentUser
+                :
+                u
+
+        );
+
+
+    saveUsers(users);
+
+    setCurrentUser(
+        currentUser
+    );
+
+
+    alert(
+        "Password changed successfully."
+    );
+
+
+    openPrivacySecurity();
 
 }
 
 
 /* =====================================================
-   TWO FACTOR AUTHENTICATION
+   TWO FACTOR
 ===================================================== */
 
-function enableTwoFactor(){
+function openTwoFactor(){
 
-let user=getUser();
+    let security =
+        getSecurity();
 
 
-if(!user.email&&!user.phone){
+    if(security.twoFactor){
 
-alert(
-"Add an email or phone number before enabling Two-Factor Authentication."
-);
+        openModal(`
 
-return;
+            <h2>
+                🛡️ Two-Factor Authentication
+            </h2>
+
+
+            <div class="securitySuccess">
+
+                <div style="font-size:45px">
+                    🛡️
+                </div>
+
+                <h3>
+                    Two-Factor Authentication is ON
+                </h3>
+
+                <p>
+                    Your account has an additional
+                    security layer.
+                </p>
+
+            </div>
+
+
+            <div class="modalButtons">
+
+                <button
+                    class="danger"
+                    onclick="disableTwoFactor()"
+                >
+                    Disable 2FA
+                </button>
+
+                <button
+                    class="secondary"
+                    onclick="openPrivacySecurity()"
+                >
+                    Back
+                </button>
+
+            </div>
+
+        `);
+
+        return;
+
+    }
+
+
+    openModal(`
+
+        <h2>
+            🛡️ Two-Factor Authentication
+        </h2>
+
+
+        <div class="demoWarning">
+
+            <b>Important:</b>
+
+            This GitHub Pages version is a
+            frontend demo. Real SMS/email OTP
+            verification requires a secure backend.
+
+        </div>
+
+
+        <p style="line-height:1.6;margin-bottom:15px">
+
+            Two-Factor Authentication adds
+            another layer of protection to
+            your account.
+
+        </p>
+
+
+        <div class="securityInfo">
+
+            <b>
+                How it works:
+            </b>
+
+            <ul
+                style="
+                    margin:10px 0 0 20px;
+                    line-height:1.8;
+                "
+            >
+
+                <li>
+                    Password is the first security layer.
+                </li>
+
+                <li>
+                    A verification code is the second layer.
+                </li>
+
+                <li>
+                    This helps protect your account.
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="modalButtons">
+
+            <button
+                class="primary"
+                onclick="enableTwoFactor()"
+            >
+                Enable 2FA
+            </button>
+
+            <button
+                class="secondary"
+                onclick="openPrivacySecurity()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    `);
 
 }
 
 
-/*
-Demo verification code.
-Real website should generate/send this
-from a secure backend.
-*/
+function enableTwoFactor(){
 
-let code=
-String(
-Math.floor(
-100000+
-Math.random()*900000
-)
-);
+    let security =
+        getSecurity();
 
 
-user.twoFactorCode=code;
-
-user.twoFactorEnabled=true;
-
-saveUser(user);
+    security.twoFactor =
+        true;
 
 
-openModal(`
-
-<h2>
-🛡️ Two-Factor Authentication Enabled
-</h2>
+    saveUserSecurity(
+        security
+    );
 
 
-<p>
-Your demo verification code is:
-</p>
+    alert(
+        "Two-Factor Authentication enabled."
+    );
 
 
-<div class="codeBox">
-${code}
-</div>
-
-
-<p
-style="font-size:13px;color:#65676b">
-
-In a real system this code would be delivered
-through a secure authenticator, email or SMS service.
-
-</p>
-
-
-<div class="successBox">
-
-2FA status: ON
-
-</div>
-
-
-<div class="modalButtons">
-
-<button
-class="primary"
-onclick="openPrivacy()">
-
-Done
-
-</button>
-
-</div>
-
-`);
+    openPrivacySecurity();
 
 }
 
 
 function disableTwoFactor(){
 
-let user=getUser();
+    let confirmDisable =
+        confirm(
+            "Are you sure you want to disable Two-Factor Authentication?"
+        );
 
 
-let answer=
-prompt(
-"Enter your current password to disable Two-Factor Authentication:"
-);
+    if(!confirmDisable)return;
 
 
-if(answer===null)return;
+    let security =
+        getSecurity();
 
 
-if(answer!==user.pass){
-
-alert(
-"Incorrect password."
-);
-
-return;
-
-}
+    security.twoFactor =
+        false;
 
 
-user.twoFactorEnabled=false;
-
-user.twoFactorCode="";
-
-saveUser(user);
+    saveUserSecurity(
+        security
+    );
 
 
-alert(
-"Two-Factor Authentication disabled."
-);
+    alert(
+        "Two-Factor Authentication disabled."
+    );
 
 
-openPrivacy();
+    openPrivacySecurity();
 
 }
 
 
-/* ================= PRIVACY SAVE ================= */
+/* =====================================================
+   PROFILE PRIVACY
+===================================================== */
 
-function savePrivacy(){
+function profilePrivacy(){
 
-let privacy={
-
-profile:
-document.getElementById("privacyProfile")
-.value,
-
-react:
-document.getElementById("privacyReact")
-.value,
-
-message:
-document.getElementById("privacyMessage")
-.value
-
-};
+    let security =
+        getSecurity();
 
 
-localStorage.setItem(
-"shirehuloPrivacy",
-JSON.stringify(privacy)
-);
+    openModal(`
+
+        <h2>
+            👁️ Profile Privacy
+        </h2>
 
 
-alert(
-"Privacy settings saved."
-);
-
-}
+        <label>
+            Who can see my profile?
+        </label>
 
 
-function loadPrivacy(){
+        <select
+            id="profilePrivacySelect"
+        >
 
-return JSON.parse(
-localStorage.getItem("shirehuloPrivacy")
-)||{
-
-profile:"Everyone",
-react:"Everyone",
-message:"Everyone"
-
-};
-
-}
-
-
-/* ================= SETTINGS ================= */
-
-function openSettings(){
-
-openModal(`
-
-<h2>⚙️ Settings</h2>
+            <option
+                ${
+                    security.profilePrivacy ===
+                    "Everyone"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Everyone
+            </option>
 
 
-<button
-class="secondary"
-onclick="openPrivacy()">
-
-🔐 Privacy & Security
-
-</button>
-
-<br><br>
-
-
-<button
-class="secondary"
-onclick="alert('Notification settings')">
-
-🔔 Notifications
-
-</button>
-
-<br><br>
+            <option
+                ${
+                    security.profilePrivacy ===
+                    "Friends"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Friends
+            </option>
 
 
-<button
-class="secondary"
-onclick="alert('Language settings')">
+            <option
+                ${
+                    security.profilePrivacy ===
+                    "Only Me"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Only Me
+            </option>
 
-🌐 Language
-
-</button>
-
-<br><br>
+        </select>
 
 
-<button
-class="primary"
-onclick="closeModal()">
+        <div class="modalButtons">
 
-Close
+            <button
+                class="primary"
+                onclick="saveProfilePrivacy()"
+            >
+                Save
+            </button>
 
-</button>
+            <button
+                class="secondary"
+                onclick="openPrivacySecurity()"
+            >
+                Cancel
+            </button>
 
-`);
+        </div>
+
+    `);
 
 }
 
 
-/* ================= SEARCH ================= */
+function saveProfilePrivacy(){
+
+    let security =
+        getSecurity();
+
+
+    security.profilePrivacy =
+        document
+        .getElementById(
+            "profilePrivacySelect"
+        )
+        .value;
+
+
+    saveUserSecurity(
+        security
+    );
+
+
+    openPrivacySecurity();
+
+}
+
+
+/* =====================================================
+   REACTION PRIVACY
+===================================================== */
+
+function reactionPrivacy(){
+
+    let security =
+        getSecurity();
+
+
+    openModal(`
+
+        <h2>
+            👍 Post Reaction Privacy
+        </h2>
+
+
+        <label>
+            Who can react to your posts?
+        </label>
+
+
+        <select
+            id="reactionPrivacySelect"
+        >
+
+            <option
+                ${
+                    security.reactionPrivacy ===
+                    "Everyone"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Everyone
+            </option>
+
+
+            <option
+                ${
+                    security.reactionPrivacy ===
+                    "Friends"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Friends
+            </option>
+
+
+            <option
+                ${
+                    security.reactionPrivacy ===
+                    "Only Me"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Only Me
+            </option>
+
+        </select>
+
+
+        <div class="modalButtons">
+
+            <button
+                class="primary"
+                onclick="saveReactionPrivacy()"
+            >
+                Save
+            </button>
+
+            <button
+                class="secondary"
+                onclick="openPrivacySecurity()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveReactionPrivacy(){
+
+    let security =
+        getSecurity();
+
+
+    security.reactionPrivacy =
+        document
+        .getElementById(
+            "reactionPrivacySelect"
+        )
+        .value;
+
+
+    saveUserSecurity(
+        security
+    );
+
+
+    openPrivacySecurity();
+
+}
+
+
+/* =====================================================
+   MESSAGE PRIVACY
+===================================================== */
+
+function messagePrivacy(){
+
+    let security =
+        getSecurity();
+
+
+    openModal(`
+
+        <h2>
+            💬 Message Privacy
+        </h2>
+
+
+        <label>
+            Who can message you?
+        </label>
+
+
+        <select
+            id="messagePrivacySelect"
+        >
+
+            <option
+                ${
+                    security.messagePrivacy ===
+                    "Everyone"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Everyone
+            </option>
+
+
+            <option
+                ${
+                    security.messagePrivacy ===
+                    "Friends"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                Friends
+            </option>
+
+
+            <option
+                ${
+                    security.messagePrivacy ===
+                    "No one"
+                    ?
+                    "selected"
+                    :
+                    ""
+                }
+            >
+                No one
+            </option>
+
+        </select>
+
+
+        <div class="modalButtons">
+
+            <button
+                class="primary"
+                onclick="saveMessagePrivacy()"
+            >
+                Save
+            </button>
+
+            <button
+                class="secondary"
+                onclick="openPrivacySecurity()"
+            >
+                Cancel
+            </button>
+
+        </div>
+
+    `);
+
+}
+
+
+function saveMessagePrivacy(){
+
+    let security =
+        getSecurity();
+
+
+    security.messagePrivacy =
+        document
+        .getElementById(
+            "messagePrivacySelect"
+        )
+        .value;
+
+
+    saveUserSecurity(
+        security
+    );
+
+
+    openPrivacySecurity();
+
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
 
 function searchUsers(){
 
-let value=
-document.getElementById("searchBox")
-.value
-.toLowerCase()
-.trim();
+    let value =
+        document
+        .getElementById(
+            "searchBox"
+        )
+        .value
+        .toLowerCase()
+        .trim();
 
 
-if(!value)return;
+    if(!value){
+
+        return;
+
+    }
 
 
-let names=[
-"Rahim",
-"Karim",
-"Hasan"
-];
+    let names = [
+        "Rahim",
+        "Karim",
+        "Hasan"
+    ];
 
 
-let found=
-names.filter(
-n=>n.toLowerCase().includes(value)
-);
+    let found =
+        names.filter(
+
+            name =>
+                name
+                .toLowerCase()
+                .includes(value)
+
+        );
 
 
-if(found.length)
-console.log("Users:",found);
+    if(found.length){
+
+        console.log(
+            "Users:",
+            found
+        );
+
+    }
 
 }
 
 
-/* ================= MODAL ================= */
+/* =====================================================
+   MODAL
+===================================================== */
 
 function openModal(html){
 
-document.getElementById("modalContent")
-.innerHTML=html;
-
-document.getElementById("modal")
-.classList.remove("hidden");
-
-
-let privacy=loadPrivacy();
+    document
+        .getElementById(
+            "modalContent"
+        )
+        .innerHTML =
+            html;
 
 
-let p=
-document.getElementById("privacyProfile");
-
-let r=
-document.getElementById("privacyReact");
-
-let m=
-document.getElementById("privacyMessage");
-
-
-if(p)p.value=privacy.profile;
-
-if(r)r.value=privacy.react;
-
-if(m)m.value=privacy.message;
+    document
+        .getElementById(
+            "modal"
+        )
+        .classList.remove(
+            "hidden"
+        );
 
 }
 
 
 function closeModal(){
 
-document.getElementById("modal")
-.classList.add("hidden");
+    document
+        .getElementById(
+            "modal"
+        )
+        .classList.add(
+            "hidden"
+        );
 
 }
 
 
-/* ================= SECURITY HELPERS ================= */
+/* =====================================================
+   SECURITY / ESCAPE HTML
+===================================================== */
 
 function escapeHTML(str){
 
-return String(str??"")
-.replace(/&/g,"&amp;")
-.replace(/</g,"&lt;")
-.replace(/>/g,"&gt;")
-.replace(/"/g,"&quot;")
-.replace(/'/g,"&#039;");
+    return String(str)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 
 }
 
 
-function escapeAttr(str){
+/* =====================================================
+   AUTO LOGIN
+===================================================== */
 
-return escapeHTML(str)
-.replace(/`/g,"&#096;");
+window.onload =
+    function(){
 
-}
-
-
-/* ================= AUTO LOGIN ================= */
-
-window.onload=function(){
-
-let logged=
-localStorage.getItem(
-"shirehuloLogin"
-);
+        let user =
+            getCurrentUser();
 
 
-if(
-logged==="true"&&
-localStorage.getItem("shirehuloUser")
-){
+        if(user){
 
-startApp();
+            currentUser =
+                user;
 
-}else{
+            startApp();
 
-document.getElementById("auth")
-.classList.remove("hidden");
+        }
 
-}
+        else{
 
-};
+            document
+                .getElementById(
+                    "auth"
+                )
+                .classList.remove(
+                    "hidden"
+                );
+
+        }
+
+    };
 
 </script>
 
